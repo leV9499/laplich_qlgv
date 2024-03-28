@@ -1,6 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
-namespace UngDungHoTroGiangVien.CONSTDATA
+namespace QLGVFunction2.CONSTDATA
 {
     public static class CONST
     {
