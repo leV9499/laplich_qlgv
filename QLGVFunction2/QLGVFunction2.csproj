@@ -36,25 +36,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Azure.Core, Version=1.35.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
-      <HintPath>F:\VS2022\Nuget\Azure.Core.1.35.0\lib\net472\Azure.Core.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\Azure.Core.1.35.0\lib\net472\Azure.Core.dll</HintPath>
     </Reference>
     <Reference Include="Azure.Identity, Version=1.10.3.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
-      <HintPath>F:\VS2022\Nuget\Azure.Identity.1.10.3\lib\netstandard2.0\Azure.Identity.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\Azure.Identity.1.10.3\lib\netstandard2.0\Azure.Identity.dll</HintPath>
     </Reference>
     <Reference Include="MegaApiClient, Version=1.10.4.0, Culture=neutral, PublicKeyToken=0480d311efbeb4e2, processorArchitecture=MSIL">
-      <HintPath>F:\VS2022\Nuget\MegaApiClient.1.10.4\lib\net471\MegaApiClient.dll</HintPath>
+      <HintPath>..\packages\MegaApiClient.1.10.4\lib\net471\MegaApiClient.dll</HintPath>
     </Reference>
     <Reference Include="Meziantou.Framework.Win32.CredentialManager, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>F:\VS2022\Nuget\Meziantou.Framework.Win32.CredentialManager.1.6.0\lib\net462\Meziantou.Framework.Win32.CredentialManager.dll</HintPath>
+      <HintPath>..\packages\Meziantou.Framework.Win32.CredentialManager.1.6.0\lib\net462\Meziantou.Framework.Win32.CredentialManager.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Data.SqlClient, Version=5.0.0.0, Culture=neutral, PublicKeyToken=23ec7fc2d6eaa4a5, processorArchitecture=MSIL">
-      <HintPath>F:\VS2022\Nuget\Microsoft.Data.SqlClient.5.2.0\lib\net462\Microsoft.Data.SqlClient.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Data.SqlClient.5.2.0\lib\net462\Microsoft.Data.SqlClient.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Identity.Client, Version=4.56.0.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Identity.Client.4.56.0\lib\net461\Microsoft.Identity.Client.dll</HintPath>
