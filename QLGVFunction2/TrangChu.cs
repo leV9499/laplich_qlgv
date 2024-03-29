@@ -14,11 +14,12 @@ namespace QLGVFunction2
         public TrangChu()
         {
             InitializeComponent();
-            LoadMatrix();
+            LoadMatrix(DateTime.Now);
         }
-        void LoadMatrix()
+        void LoadMatrix(DateTime date)
         {
             matrix = new List<List<Button>>();
+            pnlMatrix.Controls.Clear();
             Button oldBtn = new Button() { Width = 0, Height = 0, Location = new Point(-Cons.margin, 0) };
             for (int i = 0; i < Cons.DayOfColumn; i++)
             {
@@ -34,7 +35,7 @@ namespace QLGVFunction2
                 }
                 oldBtn = new Button() { Width = 0, Height = 0, Location = new Point(-Cons.margin, oldBtn.Location.Y + Cons.dateButtonHeight) };
             }
-            AddNumberToMatrixByDate(dpkDate.Value);
+            AddNumberToMatrixByDate(date);
         }
         int DayOfMonth(DateTime date)
         {
@@ -63,7 +64,8 @@ namespace QLGVFunction2
             DateTime useDate = new DateTime(date.Year, date.Month, 1);
             int line = 0;
 
-            for (int i = 1; i <= DayOfMonth(date); i++)
+            //for (int i = 1; i <= DayOfMonth(date); i++)
+            for (int i = 1; i <= DateTime.DaysInMonth(date.Year, date.Month); i++)
             {
                 int column = dateOfWeek.IndexOf(useDate.DayOfWeek.ToString());
                 //if (column != -1)
@@ -159,7 +161,7 @@ namespace QLGVFunction2
             }
             catch { }
         }
-        private void ShowPanel(Panel pnl,bool visible)
+        private void ShowPanel(Panel pnl, bool visible)
         {
             if (pnl.InvokeRequired)
             {
@@ -182,6 +184,71 @@ namespace QLGVFunction2
                 //    ViewPdf viewPdf = new ViewPdf(openFileDialog.FileName);
                 //    viewPdf.ShowDialog();
                 //}
+            }
+            catch { }
+        }
+        private void dtpInputDate_ValueChanged(object sender, EventArgs e)
+        {
+            LoadMatrix(dtpInputDate.Value);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPostMonth_Click(object sender, EventArgs e)
+        {
+            dtpInputDate.Value = dtpInputDate.Value.AddMonths(1);
+        }
+
+        private void btnPreMonth_Click(object sender, EventArgs e)
+        {
+            dtpInputDate.Value = dtpInputDate.Value.AddMonths(-1);
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            if (textBox1.Text.Length >= 5 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (textBox1.Text.Length == 1 && e.KeyChar != ':')
+            {
+                e.Handled = true;
+            }
+            else if (textBox1.Text.Length == 2 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+                textBox1.Text += ':';
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Length == 0)
+            {
+                textBox1.Text += "00:00";
+            }
+            if (textBox1.Text.Length <= 2 && !textBox1.Text.Contains(":"))
+            {
+                textBox1.Text += ":0";
+            }
+            try
+            {
+                string[] arr = textBox1.Text.Split(':');
+                if (int.Parse(arr[0]) >= 24)
+                {
+                    textBox1.Text = "00:00";
+                }
+                if (int.Parse(arr[1]) > 59)
+                {
+                    textBox1.Text = arr[0] + ":00";
+                }
             }
             catch { }
         }

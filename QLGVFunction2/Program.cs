@@ -16,7 +16,7 @@ namespace QLGVFunction2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginAccount());
+            Application.Run(new TrangChu());
         }
     }
 }
