@@ -185,5 +185,47 @@ namespace QLGVFunction2
             }
             catch { }
         }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbMonday_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddWork_Click(object sender, EventArgs e)
+        {
+            string classCode = txbClassCode.Text;
+            string subJectName = txbSubjectName.Text;
+
+        }
     }
 }

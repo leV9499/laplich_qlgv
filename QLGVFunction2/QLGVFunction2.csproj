@@ -170,6 +170,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="LichGiangDaycs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LichGiangDaycs.Designer.cs">
+      <DependentUpon>LichGiangDaycs.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginAccount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,6 +207,9 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LichGiangDaycs.resx">
+      <DependentUpon>LichGiangDaycs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginAccount.resx">
       <DependentUpon>LoginAccount.cs</DependentUpon>

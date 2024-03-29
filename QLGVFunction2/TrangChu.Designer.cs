@@ -28,8 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabTrangchu = new System.Windows.Forms.TabControl();
             this.tpXemlich = new System.Windows.Forms.TabPage();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnHomNay = new System.Windows.Forms.Button();
+            this.dpkDate = new System.Windows.Forms.DateTimePicker();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlMatrix = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.btnPreMonth = new System.Windows.Forms.Button();
+            this.btnPostMonth = new System.Windows.Forms.Button();
+            this.btnSunday = new System.Windows.Forms.Button();
+            this.btnSaturday = new System.Windows.Forms.Button();
+            this.btnFriday = new System.Windows.Forms.Button();
+            this.btnThursday = new System.Windows.Forms.Button();
+            this.btnWednesday = new System.Windows.Forms.Button();
+            this.btnTuesday = new System.Windows.Forms.Button();
+            this.btnMonday = new System.Windows.Forms.Button();
             this.tpThongtin = new System.Windows.Forms.TabPage();
             this.btnOpenPDF = new System.Windows.Forms.Button();
             this.pnlDownload = new System.Windows.Forms.Panel();
@@ -62,26 +81,58 @@
             this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.dtStart = new System.Windows.Forms.DateTimePicker();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btnHomNay = new System.Windows.Forms.Button();
-            this.dpkDate = new System.Windows.Forms.DateTimePicker();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pnlMatrix = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.btnPreMonth = new System.Windows.Forms.Button();
-            this.btnPostMonth = new System.Windows.Forms.Button();
-            this.btnSunday = new System.Windows.Forms.Button();
-            this.btnSaturday = new System.Windows.Forms.Button();
-            this.btnFriday = new System.Windows.Forms.Button();
-            this.btnThursday = new System.Windows.Forms.Button();
-            this.btnWednesday = new System.Windows.Forms.Button();
-            this.btnTuesday = new System.Windows.Forms.Button();
-            this.btnMonday = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.button2 = new System.Windows.Forms.Button();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.btnAddWork = new System.Windows.Forms.Button();
+            this.cbSaturday = new System.Windows.Forms.CheckBox();
+            this.cbFriday = new System.Windows.Forms.CheckBox();
+            this.cbThursday = new System.Windows.Forms.CheckBox();
+            this.cbWednesday = new System.Windows.Forms.CheckBox();
+            this.cbTuesday = new System.Windows.Forms.CheckBox();
+            this.cbMonday = new System.Windows.Forms.CheckBox();
+            this.txbSubjectName = new System.Windows.Forms.TextBox();
+            this.txbClassCode = new System.Windows.Forms.TextBox();
+            this.dtpEndDay = new System.Windows.Forms.DateTimePicker();
+            this.dtpStartDay = new System.Windows.Forms.DateTimePicker();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.txbStartHourMonday = new System.Windows.Forms.TextBox();
+            this.txbStartHourTuesday = new System.Windows.Forms.TextBox();
+            this.txbStartHourWednesday = new System.Windows.Forms.TextBox();
+            this.txbStartHourThursday = new System.Windows.Forms.TextBox();
+            this.txbStartHourFriday = new System.Windows.Forms.TextBox();
+            this.txbStartHourSaturday = new System.Windows.Forms.TextBox();
+            this.pnStartTime = new System.Windows.Forms.Panel();
+            this.pnEndTime = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
             this.tabTrangchu.SuspendLayout();
             this.tpXemlich.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.tpThongtin.SuspendLayout();
             this.pnlDownload.SuspendLayout();
             this.pnLoading.SuspendLayout();
@@ -92,16 +143,18 @@
             this.flowLayoutPanel5.SuspendLayout();
             this.flowLayoutPanel6.SuspendLayout();
             this.flowLayoutPanel7.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.pnStartTime.SuspendLayout();
+            this.pnEndTime.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabTrangchu
             // 
             this.tabTrangchu.Controls.Add(this.tpXemlich);
             this.tabTrangchu.Controls.Add(this.tpThongtin);
+            this.tabTrangchu.Controls.Add(this.tabPage1);
             this.tabTrangchu.Location = new System.Drawing.Point(12, 12);
             this.tabTrangchu.Name = "tabTrangchu";
             this.tabTrangchu.SelectedIndex = 0;
@@ -119,6 +172,170 @@
             this.tpXemlich.TabIndex = 0;
             this.tpXemlich.Text = "Lịch Dạy";
             this.tpXemlich.UseVisualStyleBackColor = true;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.btnHomNay);
+            this.panel3.Controls.Add(this.dpkDate);
+            this.panel3.Location = new System.Drawing.Point(27, -42);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(930, 31);
+            this.panel3.TabIndex = 3;
+            // 
+            // btnHomNay
+            // 
+            this.btnHomNay.Location = new System.Drawing.Point(546, 3);
+            this.btnHomNay.Name = "btnHomNay";
+            this.btnHomNay.Size = new System.Drawing.Size(117, 23);
+            this.btnHomNay.TabIndex = 1;
+            this.btnHomNay.Text = "Hôm nay";
+            this.btnHomNay.UseVisualStyleBackColor = true;
+            // 
+            // dpkDate
+            // 
+            this.dpkDate.Location = new System.Drawing.Point(340, 3);
+            this.dpkDate.Name = "dpkDate";
+            this.dpkDate.Size = new System.Drawing.Size(200, 22);
+            this.dpkDate.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.dateTimePicker1);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Location = new System.Drawing.Point(15, 6);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(981, 590);
+            this.panel1.TabIndex = 2;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(597, 12);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(117, 23);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Hôm nay";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(373, 12);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePicker1.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.pnlMatrix);
+            this.panel2.Controls.Add(this.panel4);
+            this.panel2.Location = new System.Drawing.Point(53, 40);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(877, 547);
+            this.panel2.TabIndex = 0;
+            // 
+            // pnlMatrix
+            // 
+            this.pnlMatrix.Location = new System.Drawing.Point(149, 66);
+            this.pnlMatrix.Name = "pnlMatrix";
+            this.pnlMatrix.Size = new System.Drawing.Size(561, 470);
+            this.pnlMatrix.TabIndex = 1;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.btnPreMonth);
+            this.panel4.Controls.Add(this.btnPostMonth);
+            this.panel4.Controls.Add(this.btnSunday);
+            this.panel4.Controls.Add(this.btnSaturday);
+            this.panel4.Controls.Add(this.btnFriday);
+            this.panel4.Controls.Add(this.btnThursday);
+            this.panel4.Controls.Add(this.btnWednesday);
+            this.panel4.Controls.Add(this.btnTuesday);
+            this.panel4.Controls.Add(this.btnMonday);
+            this.panel4.Location = new System.Drawing.Point(3, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(862, 60);
+            this.panel4.TabIndex = 0;
+            // 
+            // btnPreMonth
+            // 
+            this.btnPreMonth.Location = new System.Drawing.Point(3, 6);
+            this.btnPreMonth.Name = "btnPreMonth";
+            this.btnPreMonth.Size = new System.Drawing.Size(140, 54);
+            this.btnPreMonth.TabIndex = 9;
+            this.btnPreMonth.Text = "Tháng trước";
+            this.btnPreMonth.UseVisualStyleBackColor = true;
+            // 
+            // btnPostMonth
+            // 
+            this.btnPostMonth.Location = new System.Drawing.Point(713, 3);
+            this.btnPostMonth.Name = "btnPostMonth";
+            this.btnPostMonth.Size = new System.Drawing.Size(149, 54);
+            this.btnPostMonth.TabIndex = 8;
+            this.btnPostMonth.Text = "Tháng sau";
+            this.btnPostMonth.UseVisualStyleBackColor = true;
+            // 
+            // btnSunday
+            // 
+            this.btnSunday.Location = new System.Drawing.Point(632, 6);
+            this.btnSunday.Name = "btnSunday";
+            this.btnSunday.Size = new System.Drawing.Size(75, 54);
+            this.btnSunday.TabIndex = 7;
+            this.btnSunday.Text = "Chủ nhật";
+            this.btnSunday.UseVisualStyleBackColor = true;
+            // 
+            // btnSaturday
+            // 
+            this.btnSaturday.Location = new System.Drawing.Point(551, 6);
+            this.btnSaturday.Name = "btnSaturday";
+            this.btnSaturday.Size = new System.Drawing.Size(75, 54);
+            this.btnSaturday.TabIndex = 6;
+            this.btnSaturday.Text = "Thứ 7";
+            this.btnSaturday.UseVisualStyleBackColor = true;
+            // 
+            // btnFriday
+            // 
+            this.btnFriday.Location = new System.Drawing.Point(470, 6);
+            this.btnFriday.Name = "btnFriday";
+            this.btnFriday.Size = new System.Drawing.Size(75, 54);
+            this.btnFriday.TabIndex = 5;
+            this.btnFriday.Text = "Thứ 6";
+            this.btnFriday.UseVisualStyleBackColor = true;
+            // 
+            // btnThursday
+            // 
+            this.btnThursday.Location = new System.Drawing.Point(389, 6);
+            this.btnThursday.Name = "btnThursday";
+            this.btnThursday.Size = new System.Drawing.Size(75, 54);
+            this.btnThursday.TabIndex = 4;
+            this.btnThursday.Text = "Thứ 5";
+            this.btnThursday.UseVisualStyleBackColor = true;
+            // 
+            // btnWednesday
+            // 
+            this.btnWednesday.Location = new System.Drawing.Point(308, 6);
+            this.btnWednesday.Name = "btnWednesday";
+            this.btnWednesday.Size = new System.Drawing.Size(75, 54);
+            this.btnWednesday.TabIndex = 3;
+            this.btnWednesday.Text = "Thứ 4";
+            this.btnWednesday.UseVisualStyleBackColor = true;
+            // 
+            // btnTuesday
+            // 
+            this.btnTuesday.Location = new System.Drawing.Point(227, 6);
+            this.btnTuesday.Name = "btnTuesday";
+            this.btnTuesday.Size = new System.Drawing.Size(75, 54);
+            this.btnTuesday.TabIndex = 1;
+            this.btnTuesday.Text = "Thứ 3";
+            this.btnTuesday.UseVisualStyleBackColor = true;
+            // 
+            // btnMonday
+            // 
+            this.btnMonday.Location = new System.Drawing.Point(146, 6);
+            this.btnMonday.Name = "btnMonday";
+            this.btnMonday.Size = new System.Drawing.Size(75, 54);
+            this.btnMonday.TabIndex = 0;
+            this.btnMonday.Text = "Thứ 2";
+            this.btnMonday.UseVisualStyleBackColor = true;
             // 
             // tpThongtin
             // 
@@ -435,169 +652,433 @@
             this.dtStart.Size = new System.Drawing.Size(261, 22);
             this.dtStart.TabIndex = 2;
             // 
-            // panel3
+            // tabPage1
             // 
-            this.panel3.Controls.Add(this.btnHomNay);
-            this.panel3.Controls.Add(this.dpkDate);
-            this.panel3.Location = new System.Drawing.Point(27, -42);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(930, 31);
-            this.panel3.TabIndex = 3;
+            this.tabPage1.Controls.Add(this.panel5);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1035, 501);
+            this.tabPage1.TabIndex = 2;
+            this.tabPage1.Text = "Thêm công việc";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // btnHomNay
+            // panel5
             // 
-            this.btnHomNay.Location = new System.Drawing.Point(546, 3);
-            this.btnHomNay.Name = "btnHomNay";
-            this.btnHomNay.Size = new System.Drawing.Size(117, 23);
-            this.btnHomNay.TabIndex = 1;
-            this.btnHomNay.Text = "Hôm nay";
-            this.btnHomNay.UseVisualStyleBackColor = true;
+            this.panel5.Controls.Add(this.panel6);
+            this.panel5.Location = new System.Drawing.Point(4, 4);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1025, 491);
+            this.panel5.TabIndex = 0;
             // 
-            // dpkDate
+            // panel6
             // 
-            this.dpkDate.Location = new System.Drawing.Point(340, 3);
-            this.dpkDate.Name = "dpkDate";
-            this.dpkDate.Size = new System.Drawing.Size(200, 22);
-            this.dpkDate.TabIndex = 0;
+            this.panel6.Controls.Add(this.pnEndTime);
+            this.panel6.Controls.Add(this.pnStartTime);
+            this.panel6.Controls.Add(this.label46);
+            this.panel6.Controls.Add(this.label49);
+            this.panel6.Controls.Add(this.label40);
+            this.panel6.Controls.Add(this.label43);
+            this.panel6.Controls.Add(this.label34);
+            this.panel6.Controls.Add(this.label37);
+            this.panel6.Controls.Add(this.label28);
+            this.panel6.Controls.Add(this.label31);
+            this.panel6.Controls.Add(this.label22);
+            this.panel6.Controls.Add(this.label25);
+            this.panel6.Controls.Add(this.label19);
+            this.panel6.Controls.Add(this.label14);
+            this.panel6.Controls.Add(this.btnAddWork);
+            this.panel6.Controls.Add(this.cbSaturday);
+            this.panel6.Controls.Add(this.cbFriday);
+            this.panel6.Controls.Add(this.cbThursday);
+            this.panel6.Controls.Add(this.cbWednesday);
+            this.panel6.Controls.Add(this.cbTuesday);
+            this.panel6.Controls.Add(this.cbMonday);
+            this.panel6.Controls.Add(this.txbSubjectName);
+            this.panel6.Controls.Add(this.txbClassCode);
+            this.panel6.Controls.Add(this.dtpEndDay);
+            this.panel6.Controls.Add(this.dtpStartDay);
+            this.panel6.Controls.Add(this.label13);
+            this.panel6.Controls.Add(this.label10);
+            this.panel6.Controls.Add(this.label12);
+            this.panel6.Controls.Add(this.label11);
+            this.panel6.Controls.Add(this.label9);
+            this.panel6.Location = new System.Drawing.Point(3, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1019, 485);
+            this.panel6.TabIndex = 1;
             // 
-            // panel1
+            // label46
             // 
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.dateTimePicker1);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(15, 6);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(981, 590);
-            this.panel1.TabIndex = 2;
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(448, 397);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(111, 16);
+            this.label46.TabIndex = 88;
+            this.label46.Text = "Thời gian kết thúc";
             // 
-            // panel2
+            // label49
             // 
-            this.panel2.Controls.Add(this.pnlMatrix);
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Location = new System.Drawing.Point(53, 40);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(877, 547);
-            this.panel2.TabIndex = 0;
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(162, 393);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(111, 16);
+            this.label49.TabIndex = 83;
+            this.label49.Text = "Thời gian bắt đầu";
             // 
-            // pnlMatrix
+            // label40
             // 
-            this.pnlMatrix.Location = new System.Drawing.Point(149, 66);
-            this.pnlMatrix.Name = "pnlMatrix";
-            this.pnlMatrix.Size = new System.Drawing.Size(561, 470);
-            this.pnlMatrix.TabIndex = 1;
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(448, 355);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(111, 16);
+            this.label40.TabIndex = 78;
+            this.label40.Text = "Thời gian kết thúc";
             // 
-            // panel4
+            // label43
             // 
-            this.panel4.Controls.Add(this.btnPreMonth);
-            this.panel4.Controls.Add(this.btnPostMonth);
-            this.panel4.Controls.Add(this.btnSunday);
-            this.panel4.Controls.Add(this.btnSaturday);
-            this.panel4.Controls.Add(this.btnFriday);
-            this.panel4.Controls.Add(this.btnThursday);
-            this.panel4.Controls.Add(this.btnWednesday);
-            this.panel4.Controls.Add(this.btnTuesday);
-            this.panel4.Controls.Add(this.btnMonday);
-            this.panel4.Location = new System.Drawing.Point(3, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(862, 60);
-            this.panel4.TabIndex = 0;
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(162, 351);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(111, 16);
+            this.label43.TabIndex = 73;
+            this.label43.Text = "Thời gian bắt đầu";
             // 
-            // btnPreMonth
+            // label34
             // 
-            this.btnPreMonth.Location = new System.Drawing.Point(3, 6);
-            this.btnPreMonth.Name = "btnPreMonth";
-            this.btnPreMonth.Size = new System.Drawing.Size(140, 54);
-            this.btnPreMonth.TabIndex = 9;
-            this.btnPreMonth.Text = "Tháng trước";
-            this.btnPreMonth.UseVisualStyleBackColor = true;
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(448, 312);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(111, 16);
+            this.label34.TabIndex = 68;
+            this.label34.Text = "Thời gian kết thúc";
             // 
-            // btnPostMonth
+            // label37
             // 
-            this.btnPostMonth.Location = new System.Drawing.Point(713, 3);
-            this.btnPostMonth.Name = "btnPostMonth";
-            this.btnPostMonth.Size = new System.Drawing.Size(149, 54);
-            this.btnPostMonth.TabIndex = 8;
-            this.btnPostMonth.Text = "Tháng sau";
-            this.btnPostMonth.UseVisualStyleBackColor = true;
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(162, 308);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(111, 16);
+            this.label37.TabIndex = 63;
+            this.label37.Text = "Thời gian bắt đầu";
             // 
-            // btnSunday
+            // label28
             // 
-            this.btnSunday.Location = new System.Drawing.Point(632, 6);
-            this.btnSunday.Name = "btnSunday";
-            this.btnSunday.Size = new System.Drawing.Size(75, 54);
-            this.btnSunday.TabIndex = 7;
-            this.btnSunday.Text = "Chủ nhật";
-            this.btnSunday.UseVisualStyleBackColor = true;
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(448, 273);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(111, 16);
+            this.label28.TabIndex = 58;
+            this.label28.Text = "Thời gian kết thúc";
             // 
-            // btnSaturday
+            // label31
             // 
-            this.btnSaturday.Location = new System.Drawing.Point(551, 6);
-            this.btnSaturday.Name = "btnSaturday";
-            this.btnSaturday.Size = new System.Drawing.Size(75, 54);
-            this.btnSaturday.TabIndex = 6;
-            this.btnSaturday.Text = "Thứ 7";
-            this.btnSaturday.UseVisualStyleBackColor = true;
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(162, 269);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(111, 16);
+            this.label31.TabIndex = 53;
+            this.label31.Text = "Thời gian bắt đầu";
             // 
-            // btnFriday
+            // label22
             // 
-            this.btnFriday.Location = new System.Drawing.Point(470, 6);
-            this.btnFriday.Name = "btnFriday";
-            this.btnFriday.Size = new System.Drawing.Size(75, 54);
-            this.btnFriday.TabIndex = 5;
-            this.btnFriday.Text = "Thứ 6";
-            this.btnFriday.UseVisualStyleBackColor = true;
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(448, 235);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(111, 16);
+            this.label22.TabIndex = 48;
+            this.label22.Text = "Thời gian kết thúc";
             // 
-            // btnThursday
+            // label25
             // 
-            this.btnThursday.Location = new System.Drawing.Point(389, 6);
-            this.btnThursday.Name = "btnThursday";
-            this.btnThursday.Size = new System.Drawing.Size(75, 54);
-            this.btnThursday.TabIndex = 4;
-            this.btnThursday.Text = "Thứ 5";
-            this.btnThursday.UseVisualStyleBackColor = true;
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(162, 231);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(111, 16);
+            this.label25.TabIndex = 43;
+            this.label25.Text = "Thời gian bắt đầu";
             // 
-            // btnWednesday
+            // label19
             // 
-            this.btnWednesday.Location = new System.Drawing.Point(308, 6);
-            this.btnWednesday.Name = "btnWednesday";
-            this.btnWednesday.Size = new System.Drawing.Size(75, 54);
-            this.btnWednesday.TabIndex = 3;
-            this.btnWednesday.Text = "Thứ 4";
-            this.btnWednesday.UseVisualStyleBackColor = true;
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(448, 191);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(111, 16);
+            this.label19.TabIndex = 38;
+            this.label19.Text = "Thời gian kết thúc";
             // 
-            // btnTuesday
+            // label14
             // 
-            this.btnTuesday.Location = new System.Drawing.Point(227, 6);
-            this.btnTuesday.Name = "btnTuesday";
-            this.btnTuesday.Size = new System.Drawing.Size(75, 54);
-            this.btnTuesday.TabIndex = 1;
-            this.btnTuesday.Text = "Thứ 3";
-            this.btnTuesday.UseVisualStyleBackColor = true;
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(162, 187);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(111, 16);
+            this.label14.TabIndex = 33;
+            this.label14.Text = "Thời gian bắt đầu";
+            this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
-            // btnMonday
+            // btnAddWork
             // 
-            this.btnMonday.Location = new System.Drawing.Point(146, 6);
-            this.btnMonday.Name = "btnMonday";
-            this.btnMonday.Size = new System.Drawing.Size(75, 54);
-            this.btnMonday.TabIndex = 0;
-            this.btnMonday.Text = "Thứ 2";
-            this.btnMonday.UseVisualStyleBackColor = true;
+            this.btnAddWork.Location = new System.Drawing.Point(837, 426);
+            this.btnAddWork.Name = "btnAddWork";
+            this.btnAddWork.Size = new System.Drawing.Size(149, 39);
+            this.btnAddWork.TabIndex = 22;
+            this.btnAddWork.Text = "Thêm";
+            this.btnAddWork.UseVisualStyleBackColor = true;
+            this.btnAddWork.Click += new System.EventHandler(this.btnAddWork_Click);
             // 
-            // dateTimePicker1
+            // cbSaturday
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(373, 12);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker1.TabIndex = 1;
+            this.cbSaturday.AutoSize = true;
+            this.cbSaturday.Location = new System.Drawing.Point(31, 393);
+            this.cbSaturday.Name = "cbSaturday";
+            this.cbSaturday.Size = new System.Drawing.Size(78, 20);
+            this.cbSaturday.TabIndex = 21;
+            this.cbSaturday.Text = "Thứ bảy";
+            this.cbSaturday.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // cbFriday
             // 
-            this.button2.Location = new System.Drawing.Point(597, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(117, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Hôm nay";
-            this.button2.UseVisualStyleBackColor = true;
+            this.cbFriday.AutoSize = true;
+            this.cbFriday.Location = new System.Drawing.Point(31, 351);
+            this.cbFriday.Name = "cbFriday";
+            this.cbFriday.Size = new System.Drawing.Size(77, 20);
+            this.cbFriday.TabIndex = 20;
+            this.cbFriday.Text = "Thứ sáu";
+            this.cbFriday.UseVisualStyleBackColor = true;
+            // 
+            // cbThursday
+            // 
+            this.cbThursday.AutoSize = true;
+            this.cbThursday.Location = new System.Drawing.Point(33, 308);
+            this.cbThursday.Name = "cbThursday";
+            this.cbThursday.Size = new System.Drawing.Size(81, 20);
+            this.cbThursday.TabIndex = 19;
+            this.cbThursday.Text = "Thứ năm";
+            this.cbThursday.UseVisualStyleBackColor = true;
+            // 
+            // cbWednesday
+            // 
+            this.cbWednesday.AutoSize = true;
+            this.cbWednesday.Location = new System.Drawing.Point(36, 269);
+            this.cbWednesday.Name = "cbWednesday";
+            this.cbWednesday.Size = new System.Drawing.Size(65, 20);
+            this.cbWednesday.TabIndex = 18;
+            this.cbWednesday.Text = "Thứ tư";
+            this.cbWednesday.UseVisualStyleBackColor = true;
+            // 
+            // cbTuesday
+            // 
+            this.cbTuesday.AutoSize = true;
+            this.cbTuesday.Location = new System.Drawing.Point(33, 229);
+            this.cbTuesday.Name = "cbTuesday";
+            this.cbTuesday.Size = new System.Drawing.Size(71, 20);
+            this.cbTuesday.TabIndex = 17;
+            this.cbTuesday.Text = "Thứ ba";
+            this.cbTuesday.UseVisualStyleBackColor = true;
+            // 
+            // cbMonday
+            // 
+            this.cbMonday.AutoSize = true;
+            this.cbMonday.Location = new System.Drawing.Point(36, 187);
+            this.cbMonday.Name = "cbMonday";
+            this.cbMonday.Size = new System.Drawing.Size(73, 20);
+            this.cbMonday.TabIndex = 16;
+            this.cbMonday.Text = "Thứ hai";
+            this.cbMonday.UseVisualStyleBackColor = true;
+            this.cbMonday.CheckedChanged += new System.EventHandler(this.cbMonday_CheckedChanged);
+            // 
+            // txbSubjectName
+            // 
+            this.txbSubjectName.Location = new System.Drawing.Point(165, 51);
+            this.txbSubjectName.Name = "txbSubjectName";
+            this.txbSubjectName.Size = new System.Drawing.Size(526, 22);
+            this.txbSubjectName.TabIndex = 9;
+            // 
+            // txbClassCode
+            // 
+            this.txbClassCode.Location = new System.Drawing.Point(165, 17);
+            this.txbClassCode.Name = "txbClassCode";
+            this.txbClassCode.Size = new System.Drawing.Size(526, 22);
+            this.txbClassCode.TabIndex = 8;
+            // 
+            // dtpEndDay
+            // 
+            this.dtpEndDay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpEndDay.Location = new System.Drawing.Point(165, 148);
+            this.dtpEndDay.Name = "dtpEndDay";
+            this.dtpEndDay.Size = new System.Drawing.Size(526, 22);
+            this.dtpEndDay.TabIndex = 7;
+            // 
+            // dtpStartDay
+            // 
+            this.dtpStartDay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpStartDay.Location = new System.Drawing.Point(165, 101);
+            this.dtpStartDay.Name = "dtpStartDay";
+            this.dtpStartDay.Size = new System.Drawing.Size(526, 22);
+            this.dtpStartDay.TabIndex = 6;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(28, 148);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(88, 16);
+            this.label13.TabIndex = 5;
+            this.label13.Text = "Ngày kết thúc";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(28, 101);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(88, 16);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Ngày bắt đầu";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(22, 148);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(0, 16);
+            this.label12.TabIndex = 3;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(28, 57);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(85, 16);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "Tên môn học";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(37, 20);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(48, 16);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Mã lớp";
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // txbStartHourMonday
+            // 
+            this.txbStartHourMonday.Location = new System.Drawing.Point(20, 9);
+            this.txbStartHourMonday.Name = "txbStartHourMonday";
+            this.txbStartHourMonday.Size = new System.Drawing.Size(100, 22);
+            this.txbStartHourMonday.TabIndex = 89;
+            // 
+            // txbStartHourTuesday
+            // 
+            this.txbStartHourTuesday.Location = new System.Drawing.Point(20, 51);
+            this.txbStartHourTuesday.Name = "txbStartHourTuesday";
+            this.txbStartHourTuesday.Size = new System.Drawing.Size(100, 22);
+            this.txbStartHourTuesday.TabIndex = 90;
+            // 
+            // txbStartHourWednesday
+            // 
+            this.txbStartHourWednesday.Location = new System.Drawing.Point(20, 91);
+            this.txbStartHourWednesday.Name = "txbStartHourWednesday";
+            this.txbStartHourWednesday.Size = new System.Drawing.Size(100, 22);
+            this.txbStartHourWednesday.TabIndex = 91;
+            // 
+            // txbStartHourThursday
+            // 
+            this.txbStartHourThursday.Location = new System.Drawing.Point(20, 130);
+            this.txbStartHourThursday.Name = "txbStartHourThursday";
+            this.txbStartHourThursday.Size = new System.Drawing.Size(100, 22);
+            this.txbStartHourThursday.TabIndex = 92;
+            // 
+            // txbStartHourFriday
+            // 
+            this.txbStartHourFriday.Location = new System.Drawing.Point(20, 173);
+            this.txbStartHourFriday.Name = "txbStartHourFriday";
+            this.txbStartHourFriday.Size = new System.Drawing.Size(100, 22);
+            this.txbStartHourFriday.TabIndex = 93;
+            // 
+            // txbStartHourSaturday
+            // 
+            this.txbStartHourSaturday.Location = new System.Drawing.Point(20, 211);
+            this.txbStartHourSaturday.Name = "txbStartHourSaturday";
+            this.txbStartHourSaturday.Size = new System.Drawing.Size(100, 22);
+            this.txbStartHourSaturday.TabIndex = 94;
+            // 
+            // pnStartTime
+            // 
+            this.pnStartTime.Controls.Add(this.txbStartHourTuesday);
+            this.pnStartTime.Controls.Add(this.txbStartHourMonday);
+            this.pnStartTime.Controls.Add(this.txbStartHourWednesday);
+            this.pnStartTime.Controls.Add(this.txbStartHourThursday);
+            this.pnStartTime.Controls.Add(this.txbStartHourFriday);
+            this.pnStartTime.Controls.Add(this.txbStartHourSaturday);
+            this.pnStartTime.Location = new System.Drawing.Point(302, 181);
+            this.pnStartTime.Name = "pnStartTime";
+            this.pnStartTime.Size = new System.Drawing.Size(140, 251);
+            this.pnStartTime.TabIndex = 101;
+            // 
+            // pnEndTime
+            // 
+            this.pnEndTime.Controls.Add(this.textBox1);
+            this.pnEndTime.Controls.Add(this.textBox2);
+            this.pnEndTime.Controls.Add(this.textBox3);
+            this.pnEndTime.Controls.Add(this.textBox4);
+            this.pnEndTime.Controls.Add(this.textBox5);
+            this.pnEndTime.Controls.Add(this.textBox6);
+            this.pnEndTime.Location = new System.Drawing.Point(583, 181);
+            this.pnEndTime.Name = "pnEndTime";
+            this.pnEndTime.Size = new System.Drawing.Size(140, 251);
+            this.pnEndTime.TabIndex = 102;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(20, 51);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.TabIndex = 90;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(20, 9);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 22);
+            this.textBox2.TabIndex = 89;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(20, 91);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 22);
+            this.textBox3.TabIndex = 91;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(20, 130);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(100, 22);
+            this.textBox4.TabIndex = 92;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(20, 173);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(100, 22);
+            this.textBox5.TabIndex = 93;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(20, 211);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(100, 22);
+            this.textBox6.TabIndex = 94;
             // 
             // TrangChu
             // 
@@ -610,6 +1091,10 @@
             this.Text = "Trang Chủ";
             this.tabTrangchu.ResumeLayout(false);
             this.tpXemlich.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
             this.tpThongtin.ResumeLayout(false);
             this.tpThongtin.PerformLayout();
             this.pnlDownload.ResumeLayout(false);
@@ -627,10 +1112,14 @@
             this.flowLayoutPanel6.ResumeLayout(false);
             this.flowLayoutPanel6.PerformLayout();
             this.flowLayoutPanel7.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.pnStartTime.ResumeLayout(false);
+            this.pnStartTime.PerformLayout();
+            this.pnEndTime.ResumeLayout(false);
+            this.pnEndTime.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -689,5 +1178,51 @@
         private System.Windows.Forms.Button btnTuesday;
         private System.Windows.Forms.Button btnMonday;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button btnAddWork;
+        private System.Windows.Forms.CheckBox cbSaturday;
+        private System.Windows.Forms.CheckBox cbFriday;
+        private System.Windows.Forms.CheckBox cbThursday;
+        private System.Windows.Forms.CheckBox cbWednesday;
+        private System.Windows.Forms.CheckBox cbTuesday;
+        private System.Windows.Forms.CheckBox cbMonday;
+        private System.Windows.Forms.TextBox txbSubjectName;
+        private System.Windows.Forms.TextBox txbClassCode;
+        private System.Windows.Forms.DateTimePicker dtpEndDay;
+        private System.Windows.Forms.DateTimePicker dtpStartDay;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox txbStartHourFriday;
+        private System.Windows.Forms.TextBox txbStartHourThursday;
+        private System.Windows.Forms.TextBox txbStartHourWednesday;
+        private System.Windows.Forms.TextBox txbStartHourTuesday;
+        private System.Windows.Forms.TextBox txbStartHourMonday;
+        private System.Windows.Forms.TextBox txbStartHourSaturday;
+        private System.Windows.Forms.Panel pnEndTime;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Panel pnStartTime;
     }
 }
