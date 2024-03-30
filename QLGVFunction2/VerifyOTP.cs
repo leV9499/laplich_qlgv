@@ -13,9 +13,16 @@ namespace QLGVFunction2
     public partial class VerifyOTP : Form
     {
         string OTP = null;
+        string userName= null;
         public VerifyOTP()
         {
             InitializeComponent();
+        }
+        public VerifyOTP(string OTP,string userName)
+        {
+            InitializeComponent();
+            this.userName = userName;
+            this.OTP = OTP;
         }
         public VerifyOTP(string OTP)
         {
@@ -32,7 +39,7 @@ namespace QLGVFunction2
             if (txtOTP.Text == OTP || true)
             {
                 MessageBox.Show("Login success");
-                TrangChu t = new TrangChu();
+                TrangChu t = new TrangChu(userName);
                 this.Hide();
                 t.Show();
             }

@@ -83,6 +83,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.lbAddress = new System.Windows.Forms.Label();
             this.pnEndTime = new System.Windows.Forms.Panel();
             this.textTest = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -114,21 +115,30 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.lbAddress = new System.Windows.Forms.Label();
             this.tbpRemoveEditJob = new System.Windows.Forms.TabPage();
-            this.dtgvJob = new System.Windows.Forms.DataGridView();
-            this.label11 = new System.Windows.Forms.Label();
-            this.tbTime = new System.Windows.Forms.TextBox();
-            this.tbAddress = new System.Windows.Forms.TextBox();
-            this.tbDay = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.tbCourseId = new System.Windows.Forms.TextBox();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.dtpEndCourse = new System.Windows.Forms.DateTimePicker();
+            this.dtpStartCourse = new System.Windows.Forms.DateTimePicker();
             this.label20 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.tbAddress = new System.Windows.Forms.TextBox();
+            this.tbTime = new System.Windows.Forms.TextBox();
+            this.tbDay = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.dtgvJob = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.pnlTimeStart = new System.Windows.Forms.Panel();
+            this.lbMoney = new System.Windows.Forms.Label();
+            this.tbMoney = new System.Windows.Forms.TextBox();
+            this.tbMoneyEditDelete = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabTrangchu.SuspendLayout();
             this.tpXemlich.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -152,6 +162,7 @@
             this.pnStartTime.SuspendLayout();
             this.tbpRemoveEditJob.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvJob)).BeginInit();
+            this.pnlTimeStart.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabTrangchu
@@ -674,6 +685,9 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.textBox1);
+            this.panel6.Controls.Add(this.tbMoney);
+            this.panel6.Controls.Add(this.lbMoney);
             this.panel6.Controls.Add(this.lbAddress);
             this.panel6.Controls.Add(this.pnEndTime);
             this.panel6.Controls.Add(this.pnStartTime);
@@ -698,6 +712,15 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1019, 485);
             this.panel6.TabIndex = 1;
+            // 
+            // lbAddress
+            // 
+            this.lbAddress.AutoSize = true;
+            this.lbAddress.Location = new System.Drawing.Point(37, 57);
+            this.lbAddress.Name = "lbAddress";
+            this.lbAddress.Size = new System.Drawing.Size(47, 16);
+            this.lbAddress.TabIndex = 103;
+            this.lbAddress.Text = "Địa chỉ";
             // 
             // pnEndTime
             // 
@@ -975,32 +998,23 @@
             this.label9.TabIndex = 0;
             this.label9.Text = "Mã lớp";
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // lbAddress
-            // 
-            this.lbAddress.AutoSize = true;
-            this.lbAddress.Location = new System.Drawing.Point(37, 57);
-            this.lbAddress.Name = "lbAddress";
-            this.lbAddress.Size = new System.Drawing.Size(47, 16);
-            this.lbAddress.TabIndex = 103;
-            this.lbAddress.Text = "Địa chỉ";
-            // 
             // tbpRemoveEditJob
             // 
-            this.tbpRemoveEditJob.Controls.Add(this.dateTimePicker2);
-            this.tbpRemoveEditJob.Controls.Add(this.dateTimePicker1);
+            this.tbpRemoveEditJob.Controls.Add(this.label22);
+            this.tbpRemoveEditJob.Controls.Add(this.tbMoneyEditDelete);
+            this.tbpRemoveEditJob.Controls.Add(this.pnlTimeStart);
+            this.tbpRemoveEditJob.Controls.Add(this.label21);
+            this.tbpRemoveEditJob.Controls.Add(this.tbCourseId);
+            this.tbpRemoveEditJob.Controls.Add(this.btnDelete);
+            this.tbpRemoveEditJob.Controls.Add(this.btnEdit);
+            this.tbpRemoveEditJob.Controls.Add(this.dtpEndCourse);
+            this.tbpRemoveEditJob.Controls.Add(this.dtpStartCourse);
             this.tbpRemoveEditJob.Controls.Add(this.label20);
             this.tbpRemoveEditJob.Controls.Add(this.label18);
             this.tbpRemoveEditJob.Controls.Add(this.label17);
             this.tbpRemoveEditJob.Controls.Add(this.label16);
             this.tbpRemoveEditJob.Controls.Add(this.label15);
             this.tbpRemoveEditJob.Controls.Add(this.tbAddress);
-            this.tbpRemoveEditJob.Controls.Add(this.tbTime);
             this.tbpRemoveEditJob.Controls.Add(this.tbDay);
             this.tbpRemoveEditJob.Controls.Add(this.label11);
             this.tbpRemoveEditJob.Controls.Add(this.dtgvJob);
@@ -1012,81 +1026,60 @@
             this.tbpRemoveEditJob.Text = "Xóa và sửa công việc";
             this.tbpRemoveEditJob.UseVisualStyleBackColor = true;
             // 
-            // dtgvJob
+            // label21
             // 
-            this.dtgvJob.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvJob.Location = new System.Drawing.Point(19, 66);
-            this.dtgvJob.Name = "dtgvJob";
-            this.dtgvJob.RowHeadersWidth = 51;
-            this.dtgvJob.RowTemplate.Height = 24;
-            this.dtgvJob.Size = new System.Drawing.Size(486, 378);
-            this.dtgvJob.TabIndex = 0;
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(545, 39);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(30, 16);
+            this.label21.TabIndex = 17;
+            this.label21.Text = "Lớp";
             // 
-            // label11
+            // tbCourseId
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(218, 33);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(67, 16);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "Công việc";
+            this.tbCourseId.Location = new System.Drawing.Point(713, 33);
+            this.tbCourseId.Name = "tbCourseId";
+            this.tbCourseId.ReadOnly = true;
+            this.tbCourseId.Size = new System.Drawing.Size(245, 22);
+            this.tbCourseId.TabIndex = 16;
             // 
-            // tbTime
+            // btnDelete
             // 
-            this.tbTime.Location = new System.Drawing.Point(711, 202);
-            this.tbTime.Name = "tbTime";
-            this.tbTime.Size = new System.Drawing.Size(245, 22);
-            this.tbTime.TabIndex = 5;
+            this.btnDelete.Location = new System.Drawing.Point(859, 436);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(82, 40);
+            this.btnDelete.TabIndex = 15;
+            this.btnDelete.Text = "Xóa";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // tbAddress
+            // btnEdit
             // 
-            this.tbAddress.Location = new System.Drawing.Point(711, 145);
-            this.tbAddress.Name = "tbAddress";
-            this.tbAddress.Size = new System.Drawing.Size(245, 22);
-            this.tbAddress.TabIndex = 6;
+            this.btnEdit.Location = new System.Drawing.Point(711, 436);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(91, 40);
+            this.btnEdit.TabIndex = 14;
+            this.btnEdit.Text = "Sửa ";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
-            // tbDay
+            // dtpEndCourse
             // 
-            this.tbDay.Location = new System.Drawing.Point(711, 77);
-            this.tbDay.Name = "tbDay";
-            this.tbDay.Size = new System.Drawing.Size(245, 22);
-            this.tbDay.TabIndex = 2;
+            this.dtpEndCourse.CustomFormat = "dd/MM/yyyy HH:mm";
+            this.dtpEndCourse.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpEndCourse.Location = new System.Drawing.Point(711, 358);
+            this.dtpEndCourse.Name = "dtpEndCourse";
+            this.dtpEndCourse.Size = new System.Drawing.Size(243, 22);
+            this.dtpEndCourse.TabIndex = 13;
             // 
-            // label15
+            // dtpStartCourse
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(545, 83);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(30, 16);
-            this.label15.TabIndex = 7;
-            this.label15.Text = "Thứ";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(545, 135);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(60, 16);
-            this.label16.TabIndex = 8;
-            this.label16.Text = "Địa điểm";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(545, 205);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(137, 16);
-            this.label17.TabIndex = 9;
-            this.label17.Text = "Thời gian bắt đầu dạy";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(545, 280);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(144, 16);
-            this.label18.TabIndex = 10;
-            this.label18.Text = "Thời gian bắt đầu khóa";
+            this.dtpStartCourse.CustomFormat = "dd/MM/yyyy HH:mm";
+            this.dtpStartCourse.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpStartCourse.Location = new System.Drawing.Point(713, 282);
+            this.dtpStartCourse.Name = "dtpStartCourse";
+            this.dtpStartCourse.Size = new System.Drawing.Size(243, 22);
+            this.dtpStartCourse.TabIndex = 12;
             // 
             // label20
             // 
@@ -1097,19 +1090,138 @@
             this.label20.TabIndex = 11;
             this.label20.Text = "thời gian kết thúc khóa";
             // 
-            // dateTimePicker1
+            // label18
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(713, 282);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(243, 22);
-            this.dateTimePicker1.TabIndex = 12;
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(545, 280);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(144, 16);
+            this.label18.TabIndex = 10;
+            this.label18.Text = "Thời gian bắt đầu khóa";
             // 
-            // dateTimePicker2
+            // label17
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(711, 358);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(243, 22);
-            this.dateTimePicker2.TabIndex = 13;
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(545, 205);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(137, 16);
+            this.label17.TabIndex = 9;
+            this.label17.Text = "Thời gian bắt đầu dạy";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(545, 135);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(60, 16);
+            this.label16.TabIndex = 8;
+            this.label16.Text = "Địa điểm";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(545, 83);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(30, 16);
+            this.label15.TabIndex = 7;
+            this.label15.Text = "Thứ";
+            // 
+            // tbAddress
+            // 
+            this.tbAddress.Location = new System.Drawing.Point(711, 145);
+            this.tbAddress.Name = "tbAddress";
+            this.tbAddress.Size = new System.Drawing.Size(245, 22);
+            this.tbAddress.TabIndex = 6;
+            // 
+            // tbTime
+            // 
+            this.tbTime.Location = new System.Drawing.Point(0, 13);
+            this.tbTime.Name = "tbTime";
+            this.tbTime.Size = new System.Drawing.Size(240, 22);
+            this.tbTime.TabIndex = 5;
+            // 
+            // tbDay
+            // 
+            this.tbDay.Location = new System.Drawing.Point(711, 77);
+            this.tbDay.Name = "tbDay";
+            this.tbDay.Size = new System.Drawing.Size(245, 22);
+            this.tbDay.TabIndex = 2;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(218, 33);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(94, 16);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Lịch giảng dạy";
+            // 
+            // dtgvJob
+            // 
+            this.dtgvJob.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvJob.Location = new System.Drawing.Point(19, 66);
+            this.dtgvJob.Name = "dtgvJob";
+            this.dtgvJob.RowHeadersWidth = 51;
+            this.dtgvJob.RowTemplate.Height = 24;
+            this.dtgvJob.Size = new System.Drawing.Size(486, 378);
+            this.dtgvJob.TabIndex = 0;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // pnlTimeStart
+            // 
+            this.pnlTimeStart.Controls.Add(this.tbTime);
+            this.pnlTimeStart.Location = new System.Drawing.Point(714, 192);
+            this.pnlTimeStart.Name = "pnlTimeStart";
+            this.pnlTimeStart.Size = new System.Drawing.Size(244, 56);
+            this.pnlTimeStart.TabIndex = 18;
+            // 
+            // lbMoney
+            // 
+            this.lbMoney.AutoSize = true;
+            this.lbMoney.Location = new System.Drawing.Point(758, 20);
+            this.lbMoney.Name = "lbMoney";
+            this.lbMoney.Size = new System.Drawing.Size(52, 16);
+            this.lbMoney.TabIndex = 104;
+            this.lbMoney.Text = "Giá tiền";
+            // 
+            // tbMoney
+            // 
+            this.tbMoney.Location = new System.Drawing.Point(860, 21);
+            this.tbMoney.Name = "tbMoney";
+            this.tbMoney.Size = new System.Drawing.Size(100, 22);
+            this.tbMoney.TabIndex = 105;
+            this.tbMoney.TextChanged += new System.EventHandler(this.tbMoney_TextChanged);
+            // 
+            // tbMoneyEditDelete
+            // 
+            this.tbMoneyEditDelete.Location = new System.Drawing.Point(711, 408);
+            this.tbMoneyEditDelete.Name = "tbMoneyEditDelete";
+            this.tbMoneyEditDelete.Size = new System.Drawing.Size(247, 22);
+            this.tbMoneyEditDelete.TabIndex = 106;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(545, 414);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(52, 16);
+            this.label22.TabIndex = 107;
+            this.label22.Text = "Giá tiền";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(165, 227);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(131, 62);
+            this.textBox1.TabIndex = 106;
+            this.textBox1.Text = "Thời gian mỗi ca dạy 2:30";
             // 
             // TrangChu
             // 
@@ -1154,6 +1266,8 @@
             this.tbpRemoveEditJob.ResumeLayout(false);
             this.tbpRemoveEditJob.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvJob)).EndInit();
+            this.pnlTimeStart.ResumeLayout(false);
+            this.pnlTimeStart.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1254,12 +1368,22 @@
         private System.Windows.Forms.TextBox tbAddress;
         private System.Windows.Forms.TextBox tbTime;
         private System.Windows.Forms.TextBox tbDay;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpEndCourse;
+        private System.Windows.Forms.DateTimePicker dtpStartCourse;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox tbCourseId;
+        private System.Windows.Forms.Panel pnlTimeStart;
+        private System.Windows.Forms.TextBox tbMoney;
+        private System.Windows.Forms.Label lbMoney;
+        private System.Windows.Forms.TextBox tbMoneyEditDelete;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
