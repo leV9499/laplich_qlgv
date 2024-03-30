@@ -7,8 +7,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using UngDungHoTroGiangVien.CONSTDATA;
-namespace UngDungHoTroGiangVien.Service
+using QLGVFunction2.CONSTDATA;
+namespace QLGVFunction2.Service
 {
     public static class MegaCloud
     {

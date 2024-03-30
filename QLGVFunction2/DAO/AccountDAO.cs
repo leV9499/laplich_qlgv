@@ -1,4 +1,4 @@
-﻿using UngDungHoTroGiangVien.DAO;
+﻿using QLGVFunction2.DAO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UngDungHoTroGiangVien.DAO
+namespace QLGVFunction2.DAO
 {
     public class AccountDAO
     {

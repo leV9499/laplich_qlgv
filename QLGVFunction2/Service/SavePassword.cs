@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UngDungHoTroGiangVien.Service
+namespace QLGVFunction2.Service
 {
     public static class SavePassword
     {

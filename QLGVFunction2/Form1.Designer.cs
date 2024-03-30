@@ -32,6 +32,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.pnlMatrix = new System.Windows.Forms.FlowLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnPreMonth = new System.Windows.Forms.Button();
+            this.btnPostMonth = new System.Windows.Forms.Button();
             this.btnSunday = new System.Windows.Forms.Button();
             this.btnSaturday = new System.Windows.Forms.Button();
             this.btnFriday = new System.Windows.Forms.Button();
@@ -42,8 +44,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnHomNay = new System.Windows.Forms.Button();
             this.dpkDate = new System.Windows.Forms.DateTimePicker();
-            this.btnPostMonth = new System.Windows.Forms.Button();
-            this.btnPreMonth = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -89,6 +89,24 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(862, 60);
             this.panel4.TabIndex = 0;
+            // 
+            // btnPreMonth
+            // 
+            this.btnPreMonth.Location = new System.Drawing.Point(3, 6);
+            this.btnPreMonth.Name = "btnPreMonth";
+            this.btnPreMonth.Size = new System.Drawing.Size(140, 54);
+            this.btnPreMonth.TabIndex = 9;
+            this.btnPreMonth.Text = "Tháng trước";
+            this.btnPreMonth.UseVisualStyleBackColor = true;
+            // 
+            // btnPostMonth
+            // 
+            this.btnPostMonth.Location = new System.Drawing.Point(713, 3);
+            this.btnPostMonth.Name = "btnPostMonth";
+            this.btnPostMonth.Size = new System.Drawing.Size(149, 54);
+            this.btnPostMonth.TabIndex = 8;
+            this.btnPostMonth.Text = "Tháng sau";
+            this.btnPostMonth.UseVisualStyleBackColor = true;
             // 
             // btnSunday
             // 
@@ -178,24 +196,6 @@
             this.dpkDate.Size = new System.Drawing.Size(200, 22);
             this.dpkDate.TabIndex = 0;
             // 
-            // btnPostMonth
-            // 
-            this.btnPostMonth.Location = new System.Drawing.Point(713, 3);
-            this.btnPostMonth.Name = "btnPostMonth";
-            this.btnPostMonth.Size = new System.Drawing.Size(149, 54);
-            this.btnPostMonth.TabIndex = 8;
-            this.btnPostMonth.Text = "Tháng sau";
-            this.btnPostMonth.UseVisualStyleBackColor = true;
-            // 
-            // btnPreMonth
-            // 
-            this.btnPreMonth.Location = new System.Drawing.Point(3, 6);
-            this.btnPreMonth.Name = "btnPreMonth";
-            this.btnPreMonth.Size = new System.Drawing.Size(140, 54);
-            this.btnPreMonth.TabIndex = 9;
-            this.btnPreMonth.Text = "Tháng trước";
-            this.btnPreMonth.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -221,7 +221,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.FlowLayoutPanel pnlMatrix;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.DateTimePicker dpkDate;
         private System.Windows.Forms.Button btnHomNay;
         private System.Windows.Forms.Button btnSunday;
         private System.Windows.Forms.Button btnSaturday;
@@ -232,6 +231,7 @@
         private System.Windows.Forms.Button btnMonday;
         private System.Windows.Forms.Button btnPreMonth;
         private System.Windows.Forms.Button btnPostMonth;
+        private System.Windows.Forms.DateTimePicker dpkDate;
     }
 }
 
