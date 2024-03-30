@@ -17,12 +17,24 @@ namespace QLGVFunction2
         private Dictionary<DateTime, DataTable[]> loadedData = new Dictionary<DateTime, DataTable[]>();
         private DataTable calendarCurMonth;
         private DataTable absentDays;
+
+        string userId = "";
+        public TrangChu(string userId)
+        {
+            InitializeComponent();
+            LoadCalendar(DateTime.Now);
+            LoadTextTime(pnStartTime);
+            LoadTextTime(pnEndTime);
+            ShowAllJob();
+            this.userId = userId;
+        }
         public TrangChu()
         {
             InitializeComponent();
             LoadCalendar(DateTime.Now);
             LoadTextTime(pnStartTime);
             LoadTextTime(pnEndTime);
+            ShowAllJob();
         }
         void LoadCalendar(DateTime date)
         {
@@ -279,11 +291,103 @@ namespace QLGVFunction2
         private void label14_Click(object sender, EventArgs e)
         {
         }
+        public string checkCalender()
+        {
+            string t2 = "";
+            string t3 = "";
+            string t4 = "";
+            string t5 = "";
+            string t6 = "";
+            string t7 = "";
+            string t = "";
+            if (cbMonday.Checked == true)
+            {
+                t2 = "2-";
+            }
+            if (cbTuesday.Checked == true)
+            {
+                t3 = "3-";
+            }
+            if (cbWednesday.Checked == true)
+            {
+                t4 = "4-";
+            }
+            if (cbThursday.Checked == true)
+            {
+                t5 = "5-";
+            }
+            if (cbFriday.Checked == true)
+            {
+                t6 = "6-";
+            }
+            if (cbSaturday.Checked == true)
+            {
+                t7 = "7";
+            }
+            if (t2 != null || t3!=null||t4!=null||t5!=null||t6!=null||t7!=null)
+            {
+                t += t2+t3+t4+t5+t6+t7;
+            }
+            if (t != null)
+            {
+                if (t.EndsWith("-"))
+                {
+                    t = t.Remove(t.Length - 1);
+                }
+            }
+            return t;
+        }
         private void btnAddWork_Click(object sender, EventArgs e)
         {
+            
             string classCode = txbClassCode.Text;
-            string subJectName = txbSubjectName.Text;
+            userId = "12";
+            string addressTeaching = txbAddress.Text;
+            DateTime calenderStart = dtpStartDay.Value;
+            DateTime calenderEnd = dtpEndDay.Value;
+            string teachingDay = checkCalender();
+            string timeStart=txbStartHourMonday.Text;
+            if (calenderStart > calenderEnd  )
+            {
+                MessageBox.Show("Sai thời gian!!!");
+            }
+            else if ( string.IsNullOrEmpty(teachingDay))
+            {
+                MessageBox.Show("Nhập thứ!!!");
+            }
+            else if (string.IsNullOrEmpty(classCode))
+            {
+                MessageBox.Show("Hãy điền mã lớp!!!");
+            }
+            else if (CourseDAO.Instance.CheckCourseId(classCode))
+            {
+                MessageBox.Show("Hãy nhập mã lớp khác!!!");
+            }
+            else if (string.IsNullOrEmpty(timeStart))
+            {
+                MessageBox.Show("Hãy nhập thời gian bắt đầu dạy!!!");
+            }
+            else
+            {
+                addCourse(classCode,userId,teachingDay,timeStart,addressTeaching,calenderStart,calenderEnd);
+                MessageBox.Show("Thêm thành công!!!");
+                ShowAllJob();
+            }
+
+
         }
+        void addCourse(string courseId, string userId, string teachingDay, string startingTime, string location, DateTime calenderStart, DateTime calenderEnd)
+        {
+            string calenderStartStr = calenderStart.ToString("yyyy-MM-dd HH:mm:ss");
+            string calenderEndStr = calenderEnd.ToString("yyyy-MM-dd HH:mm:ss");
+            CourseDAO.Instance.AddCourse(courseId,  userId,  teachingDay,  startingTime,  location, calenderStartStr, calenderEndStr);
+        }
+        void ShowAllJob()
+        {
+            DataTable dataTable = CourseDAO.Instance.ShowJob();
+            dtgvJob.DataSource = dataTable;
+        }
+
         private void btnPostMonth_Click(object sender, EventArgs e)
         {
             dtpInputDate.Value = dtpInputDate.Value.AddMonths(1);
@@ -347,5 +451,7 @@ namespace QLGVFunction2
             }
             catch { }
         }
+
+
     }
 }

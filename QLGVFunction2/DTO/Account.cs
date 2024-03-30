@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace QLGV.DTO
 {
-    internal class Account
+    public class Account
     {
+
+
+
+        
     }
 }

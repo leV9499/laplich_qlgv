@@ -30,6 +30,7 @@ namespace QLGVFunction2.DAO
             DataTable result = DataProvider.Instance.ExecuteQuery("exec GetReportCourse @date , @userid ", new object[] { ValidateService.ConvertToDateFormat(date.ToString()), userId });
             return result;
         }
+
         public string GetUserId(string courseId)
         {
             string userId = "";
@@ -50,6 +51,19 @@ namespace QLGVFunction2.DAO
             string query = string.Format("select * from Course where courseId  = N'{0}'", courseId);
             DataTable result = DataProvider.Instance.ExecuteQuery(query);
             return result.Rows.Count > 0;
+        }
+
+        public void AddCourse(string courseId, string userId, string teachingDay, string startingTime, string location, string calenderStart, string calenderEnd)
+       
+        {
+            DataProvider.Instance.ExecuteNonQuery($" exec addTeaching '{courseId}' , '{userId}' , '{teachingDay}' , '{startingTime}' , '{location}' , '{calenderStart}' ,  '{calenderEnd}' ", new object[] { });
+        }
+
+        public DataTable ShowJob()
+        {
+            string query = "select courseId as N'Mã lớp', Teachingday as N'Thứ',Location as N'Địa điểm', Startingtime as N'Thời gian bắt đầu dạy', calendarStart as N'Thời gian bắt đầu lớp', calendarEnd as N'Thời gian bắt đầu lớp' from Course";
+            DataTable table = DataProvider.Instance.ExecuteQuery(query);
+            return table;
 
         }
     }
