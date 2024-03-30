@@ -80,10 +80,23 @@
             this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.dtStart = new System.Windows.Forms.DateTimePicker();
-
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.pnEndTime = new System.Windows.Forms.Panel();
+            this.textTest = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.pnStartTime = new System.Windows.Forms.Panel();
+            this.txbStartHourTuesday = new System.Windows.Forms.TextBox();
+            this.txbStartHourMonday = new System.Windows.Forms.TextBox();
+            this.txbStartHourWednesday = new System.Windows.Forms.TextBox();
+            this.txbStartHourThursday = new System.Windows.Forms.TextBox();
+            this.txbStartHourFriday = new System.Windows.Forms.TextBox();
+            this.txbStartHourSaturday = new System.Windows.Forms.TextBox();
             this.label46 = new System.Windows.Forms.Label();
             this.label49 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
@@ -113,23 +126,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.txbStartHourMonday = new System.Windows.Forms.TextBox();
-            this.txbStartHourTuesday = new System.Windows.Forms.TextBox();
-            this.txbStartHourWednesday = new System.Windows.Forms.TextBox();
-            this.txbStartHourThursday = new System.Windows.Forms.TextBox();
-            this.txbStartHourFriday = new System.Windows.Forms.TextBox();
-            this.txbStartHourSaturday = new System.Windows.Forms.TextBox();
-            this.pnStartTime = new System.Windows.Forms.Panel();
-            this.pnEndTime = new System.Windows.Forms.Panel();
-            this.textTest = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-
-            this.textBox1 = new System.Windows.Forms.TextBox();
-
             this.tabTrangchu.SuspendLayout();
             this.tpXemlich.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -146,13 +142,11 @@
             this.flowLayoutPanel5.SuspendLayout();
             this.flowLayoutPanel6.SuspendLayout();
             this.flowLayoutPanel7.SuspendLayout();
-
             this.tabPage1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.pnStartTime.SuspendLayout();
             this.pnEndTime.SuspendLayout();
-
+            this.pnStartTime.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabTrangchu
@@ -181,7 +175,6 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.btnHomNay);
-
             this.panel3.Location = new System.Drawing.Point(27, -42);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(930, 31);
@@ -196,10 +189,8 @@
             this.btnHomNay.Text = "Hôm nay";
             this.btnHomNay.UseVisualStyleBackColor = true;
             // 
-
             // panel1
             // 
-            this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.dtpInputDate);
             this.panel1.Controls.Add(this.panel2);
@@ -210,14 +201,13 @@
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.Transparent;
             this.button2.Location = new System.Drawing.Point(597, 12);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(117, 23);
             this.button2.TabIndex = 2;
             this.button2.Text = "Hôm nay";
-            this.button2.UseVisualStyleBackColor = true;
-
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // dtpInputDate
             // 
@@ -226,7 +216,6 @@
             this.dtpInputDate.Size = new System.Drawing.Size(243, 22);
             this.dtpInputDate.TabIndex = 1;
             this.dtpInputDate.ValueChanged += new System.EventHandler(this.dtpInputDate_ValueChanged);
-
             // 
             // panel2
             // 
@@ -268,9 +257,7 @@
             this.btnPreMonth.TabIndex = 9;
             this.btnPreMonth.Text = "Tháng trước";
             this.btnPreMonth.UseVisualStyleBackColor = true;
-
             this.btnPreMonth.Click += new System.EventHandler(this.btnPreMonth_Click);
-
             // 
             // btnPostMonth
             // 
@@ -280,9 +267,7 @@
             this.btnPostMonth.TabIndex = 8;
             this.btnPostMonth.Text = "Tháng sau";
             this.btnPostMonth.UseVisualStyleBackColor = true;
-
             this.btnPostMonth.Click += new System.EventHandler(this.btnPostMonth_Click);
-
             // 
             // btnSunday
             // 
@@ -662,7 +647,6 @@
             this.dtStart.Size = new System.Drawing.Size(261, 22);
             this.dtStart.TabIndex = 2;
             // 
-
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.panel5);
@@ -718,6 +702,116 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1019, 485);
             this.panel6.TabIndex = 1;
+            // 
+            // pnEndTime
+            // 
+            this.pnEndTime.Controls.Add(this.textTest);
+            this.pnEndTime.Controls.Add(this.textBox2);
+            this.pnEndTime.Controls.Add(this.textBox3);
+            this.pnEndTime.Controls.Add(this.textBox4);
+            this.pnEndTime.Controls.Add(this.textBox5);
+            this.pnEndTime.Controls.Add(this.textBox6);
+            this.pnEndTime.Location = new System.Drawing.Point(583, 181);
+            this.pnEndTime.Name = "pnEndTime";
+            this.pnEndTime.Size = new System.Drawing.Size(140, 251);
+            this.pnEndTime.TabIndex = 102;
+            // 
+            // textTest
+            // 
+            this.textTest.Location = new System.Drawing.Point(20, 51);
+            this.textTest.Name = "textTest";
+            this.textTest.Size = new System.Drawing.Size(100, 22);
+            this.textTest.TabIndex = 90;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(20, 9);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 22);
+            this.textBox2.TabIndex = 89;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(20, 91);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 22);
+            this.textBox3.TabIndex = 91;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(20, 130);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(100, 22);
+            this.textBox4.TabIndex = 92;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(20, 173);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(100, 22);
+            this.textBox5.TabIndex = 93;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(20, 211);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(100, 22);
+            this.textBox6.TabIndex = 94;
+            // 
+            // pnStartTime
+            // 
+            this.pnStartTime.Controls.Add(this.txbStartHourTuesday);
+            this.pnStartTime.Controls.Add(this.txbStartHourMonday);
+            this.pnStartTime.Controls.Add(this.txbStartHourWednesday);
+            this.pnStartTime.Controls.Add(this.txbStartHourThursday);
+            this.pnStartTime.Controls.Add(this.txbStartHourFriday);
+            this.pnStartTime.Controls.Add(this.txbStartHourSaturday);
+            this.pnStartTime.Location = new System.Drawing.Point(302, 181);
+            this.pnStartTime.Name = "pnStartTime";
+            this.pnStartTime.Size = new System.Drawing.Size(140, 251);
+            this.pnStartTime.TabIndex = 101;
+            // 
+            // txbStartHourTuesday
+            // 
+            this.txbStartHourTuesday.Location = new System.Drawing.Point(20, 51);
+            this.txbStartHourTuesday.Name = "txbStartHourTuesday";
+            this.txbStartHourTuesday.Size = new System.Drawing.Size(100, 22);
+            this.txbStartHourTuesday.TabIndex = 90;
+            // 
+            // txbStartHourMonday
+            // 
+            this.txbStartHourMonday.Location = new System.Drawing.Point(20, 9);
+            this.txbStartHourMonday.Name = "txbStartHourMonday";
+            this.txbStartHourMonday.Size = new System.Drawing.Size(100, 22);
+            this.txbStartHourMonday.TabIndex = 89;
+            // 
+            // txbStartHourWednesday
+            // 
+            this.txbStartHourWednesday.Location = new System.Drawing.Point(20, 91);
+            this.txbStartHourWednesday.Name = "txbStartHourWednesday";
+            this.txbStartHourWednesday.Size = new System.Drawing.Size(100, 22);
+            this.txbStartHourWednesday.TabIndex = 91;
+            // 
+            // txbStartHourThursday
+            // 
+            this.txbStartHourThursday.Location = new System.Drawing.Point(20, 130);
+            this.txbStartHourThursday.Name = "txbStartHourThursday";
+            this.txbStartHourThursday.Size = new System.Drawing.Size(100, 22);
+            this.txbStartHourThursday.TabIndex = 92;
+            // 
+            // txbStartHourFriday
+            // 
+            this.txbStartHourFriday.Location = new System.Drawing.Point(20, 173);
+            this.txbStartHourFriday.Name = "txbStartHourFriday";
+            this.txbStartHourFriday.Size = new System.Drawing.Size(100, 22);
+            this.txbStartHourFriday.TabIndex = 93;
+            // 
+            // txbStartHourSaturday
+            // 
+            this.txbStartHourSaturday.Location = new System.Drawing.Point(20, 211);
+            this.txbStartHourSaturday.Name = "txbStartHourSaturday";
+            this.txbStartHourSaturday.Size = new System.Drawing.Size(100, 22);
+            this.txbStartHourSaturday.TabIndex = 94;
             // 
             // label46
             // 
@@ -981,127 +1075,6 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // txbStartHourMonday
-            // 
-            this.txbStartHourMonday.Location = new System.Drawing.Point(20, 9);
-            this.txbStartHourMonday.Name = "txbStartHourMonday";
-            this.txbStartHourMonday.Size = new System.Drawing.Size(100, 22);
-            this.txbStartHourMonday.TabIndex = 89;
-            // 
-            // txbStartHourTuesday
-            // 
-            this.txbStartHourTuesday.Location = new System.Drawing.Point(20, 51);
-            this.txbStartHourTuesday.Name = "txbStartHourTuesday";
-            this.txbStartHourTuesday.Size = new System.Drawing.Size(100, 22);
-            this.txbStartHourTuesday.TabIndex = 90;
-            // 
-            // txbStartHourWednesday
-            // 
-            this.txbStartHourWednesday.Location = new System.Drawing.Point(20, 91);
-            this.txbStartHourWednesday.Name = "txbStartHourWednesday";
-            this.txbStartHourWednesday.Size = new System.Drawing.Size(100, 22);
-            this.txbStartHourWednesday.TabIndex = 91;
-            // 
-            // txbStartHourThursday
-            // 
-            this.txbStartHourThursday.Location = new System.Drawing.Point(20, 130);
-            this.txbStartHourThursday.Name = "txbStartHourThursday";
-            this.txbStartHourThursday.Size = new System.Drawing.Size(100, 22);
-            this.txbStartHourThursday.TabIndex = 92;
-            // 
-            // txbStartHourFriday
-            // 
-            this.txbStartHourFriday.Location = new System.Drawing.Point(20, 173);
-            this.txbStartHourFriday.Name = "txbStartHourFriday";
-            this.txbStartHourFriday.Size = new System.Drawing.Size(100, 22);
-            this.txbStartHourFriday.TabIndex = 93;
-            // 
-            // txbStartHourSaturday
-            // 
-            this.txbStartHourSaturday.Location = new System.Drawing.Point(20, 211);
-            this.txbStartHourSaturday.Name = "txbStartHourSaturday";
-            this.txbStartHourSaturday.Size = new System.Drawing.Size(100, 22);
-            this.txbStartHourSaturday.TabIndex = 94;
-            // 
-            // pnStartTime
-            // 
-            this.pnStartTime.Controls.Add(this.txbStartHourTuesday);
-            this.pnStartTime.Controls.Add(this.txbStartHourMonday);
-            this.pnStartTime.Controls.Add(this.txbStartHourWednesday);
-            this.pnStartTime.Controls.Add(this.txbStartHourThursday);
-            this.pnStartTime.Controls.Add(this.txbStartHourFriday);
-            this.pnStartTime.Controls.Add(this.txbStartHourSaturday);
-            this.pnStartTime.Location = new System.Drawing.Point(302, 181);
-            this.pnStartTime.Name = "pnStartTime";
-            this.pnStartTime.Size = new System.Drawing.Size(140, 251);
-            this.pnStartTime.TabIndex = 101;
-            // 
-            // pnEndTime
-            // 
-            this.pnEndTime.Controls.Add(this.textTest);
-            this.pnEndTime.Controls.Add(this.textBox2);
-            this.pnEndTime.Controls.Add(this.textBox3);
-            this.pnEndTime.Controls.Add(this.textBox4);
-            this.pnEndTime.Controls.Add(this.textBox5);
-            this.pnEndTime.Controls.Add(this.textBox6);
-            this.pnEndTime.Location = new System.Drawing.Point(583, 181);
-            this.pnEndTime.Name = "pnEndTime";
-            this.pnEndTime.Size = new System.Drawing.Size(140, 251);
-            this.pnEndTime.TabIndex = 102;
-            // 
-            // textTest
-            // 
-            this.textTest.Location = new System.Drawing.Point(20, 51);
-            this.textTest.Name = "textTest";
-            this.textTest.Size = new System.Drawing.Size(100, 22);
-            this.textTest.TabIndex = 90;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(20, 9);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 89;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(20, 91);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 91;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(20, 130);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 22);
-            this.textBox4.TabIndex = 92;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(20, 173);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 22);
-            this.textBox5.TabIndex = 93;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(20, 211);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 22);
-            this.textBox6.TabIndex = 94;
-
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(120, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.Text = "12:00";
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
-
-            // 
             // TrangChu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1115,9 +1088,6 @@
             this.tpXemlich.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-
-            this.panel1.PerformLayout();
-
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.tpThongtin.ResumeLayout(false);
@@ -1137,16 +1107,14 @@
             this.flowLayoutPanel6.ResumeLayout(false);
             this.flowLayoutPanel6.PerformLayout();
             this.flowLayoutPanel7.ResumeLayout(false);
-
             this.tabPage1.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            this.pnStartTime.ResumeLayout(false);
-            this.pnStartTime.PerformLayout();
             this.pnEndTime.ResumeLayout(false);
             this.pnEndTime.PerformLayout();
-
+            this.pnStartTime.ResumeLayout(false);
+            this.pnStartTime.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1244,7 +1212,6 @@
         private System.Windows.Forms.TextBox txbStartHourMonday;
         private System.Windows.Forms.TextBox txbStartHourSaturday;
         private System.Windows.Forms.Panel pnEndTime;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;

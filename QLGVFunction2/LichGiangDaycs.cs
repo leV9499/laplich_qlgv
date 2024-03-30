@@ -16,5 +16,10 @@ namespace QLGVFunction2
         {
             InitializeComponent();
         }
+        public LichGiangDaycs(DataTable dt)
+        {
+            InitializeComponent();
+
+        }
     }
 }
