@@ -18,7 +18,7 @@ namespace QLGVFunction2
         private Dictionary<DateTime, DataTable[]> loadedData = new Dictionary<DateTime, DataTable[]>();
         private DataTable calendarCurMonth;
         private DataTable absentDays;
-
+        private bool isLoading = false;
         string userId = null;
         public TrangChu(string userId)
         {
@@ -29,7 +29,7 @@ namespace QLGVFunction2
             LoadTextTime(pnlTimeStart);
             LoadTextTime(pnEndTime);
             ShowAllJob();
-            
+
         }
         public TrangChu()
         {
@@ -42,6 +42,7 @@ namespace QLGVFunction2
         }
         void LoadCalendar(DateTime date)
         {
+            isLoading = true;
             matrix = new List<List<Button>>();
             pnlMatrix.Controls.Clear();
             Button oldBtn = new Button() { Width = 0, Height = 0, Location = new Point(-Cons.margin, 0) };
@@ -89,31 +90,36 @@ namespace QLGVFunction2
                 }
                 else
                 {
-                    if (CourseDAO.Instance.CheckGetCalendar(userId) && CourseDAO.Instance.CheckGetAbsentCalendar(userId))
-                    {
+                    calendarCurMonth = CourseDAO.Instance.GetCalendar(date, userId);
+                    absentDays = CourseDAO.Instance.GetAbsentCalendar(date, userId);
+
+                    loadedData.Add(useDate, new DataTable[] { calendarCurMonth, absentDays });
+
+                    //if (CourseDAO.Instance.CheckGetCalendar(userId) && CourseDAO.Instance.CheckGetAbsentCalendar(userId))
+                    //{
 
 
-                        calendarCurMonth = CourseDAO.Instance.GetCalendar(date, userId);
-                        absentDays = CourseDAO.Instance.GetAbsentCalendar(date, userId);
+                    //    calendarCurMonth = CourseDAO.Instance.GetCalendar(date, userId);
+                    //    absentDays = CourseDAO.Instance.GetAbsentCalendar(date, userId);
 
-                        loadedData.Add(useDate, new DataTable[] { calendarCurMonth, absentDays });
-                    }
-                    else if (CourseDAO.Instance.CheckGetCalendar(userId) &&!CourseDAO.Instance.CheckGetAbsentCalendar(userId))
-                    {
-
-
-                        calendarCurMonth = CourseDAO.Instance.GetCalendar(date, userId);
-
-                        loadedData.Add(useDate, new DataTable[] { calendarCurMonth});
-                    }
-                    else if (!CourseDAO.Instance.CheckGetCalendar(userId) && CourseDAO.Instance.CheckGetAbsentCalendar(userId))
-                    {
+                    //    loadedData.Add(useDate, new DataTable[] { calendarCurMonth, absentDays });
+                    //}
+                    //else if (CourseDAO.Instance.CheckGetCalendar(userId) &&!CourseDAO.Instance.CheckGetAbsentCalendar(userId))
+                    //{
 
 
-                        absentDays = CourseDAO.Instance.GetAbsentCalendar(date, userId);
+                    //    calendarCurMonth = CourseDAO.Instance.GetCalendar(date, userId);
 
-                        loadedData.Add(useDate, new DataTable[] { absentDays });
-                    }
+                    //    loadedData.Add(useDate, new DataTable[] { calendarCurMonth});
+                    //}
+                    //else if (!CourseDAO.Instance.CheckGetCalendar(userId) && CourseDAO.Instance.CheckGetAbsentCalendar(userId))
+                    //{
+
+
+                    //    absentDays = CourseDAO.Instance.GetAbsentCalendar(date, userId);
+
+                    //    loadedData.Add(useDate, new DataTable[] { absentDays });
+                    //}
 
                 }
                 int days = DateTime.DaysInMonth(date.Year, date.Month);
@@ -123,38 +129,38 @@ namespace QLGVFunction2
                     int column = dateOfWeek.IndexOf(useDate.DayOfWeek.ToString());
                     Button btn = matrix[line][column];
 
-                   
 
-             
+
+
 
                     if (CheckTeachingday(useDate, (column + 2).ToString()))
                     {
 
-                     
-                            if (btn.InvokeRequired)
+
+                        if (btn.InvokeRequired)
+                        {
+                            DateTime tmp = useDate;
+                            btn.BeginInvoke(new Action(() =>
                             {
-                                DateTime tmp = useDate;
-                                btn.BeginInvoke(new Action(() =>
-                                {
-                                    btn.Tag = tmp;
-                                    btn.BackColor = Color.LightCyan;
-                                    //btn.Tag = useDate.ToString();
-                                    btn.Click += ChooseDateBtnClick;
-                                }));
-                            }
-                            else
-                            {
-                                btn.Tag = useDate;
-                                btn.Click += ChooseDateBtnClick;
+                                btn.Tag = tmp;
                                 btn.BackColor = Color.LightCyan;
-                            }
-                       
+                                //btn.Tag = useDate.ToString();
+                                btn.Click += ChooseDateBtnClick;
+                            }));
+                        }
+                        else
+                        {
+                            btn.Tag = useDate;
+                            btn.Click += ChooseDateBtnClick;
+                            btn.BackColor = Color.LightCyan;
+                        }
+
                     }
                     if (column >= 6)
                         line++;
                     useDate = useDate.AddDays(1);
                 }
-                    
+                isLoading = false;
             });
             t.Start();
         }
@@ -213,7 +219,7 @@ namespace QLGVFunction2
             }
             else
             {
-                return false; 
+                return false;
             }
             //return absentDays.AsEnumerable().Any(a => a.Field<DateTime>("rescheduleday").Date == useDate.Date);
         }
@@ -351,8 +357,8 @@ namespace QLGVFunction2
         {
             tbDay.DataBindings.Clear();
             tbAddress.DataBindings.Clear();
-            tbTime.DataBindings.Clear();    
-        dtpStartCourse.DataBindings.Clear();
+            tbTime.DataBindings.Clear();
+            dtpStartCourse.DataBindings.Clear();
             dtpEndCourse.DataBindings.Clear();
             tbCourseId.DataBindings.Clear();
             tbMoneyEditDelete.DataBindings.Clear();
@@ -361,14 +367,14 @@ namespace QLGVFunction2
         void LoadInforBinding()
         {
             tbCourseId.DataBindings.Add(new Binding("Text", dtgvJob.DataSource, "Mã lớp", true, DataSourceUpdateMode.Never));
-            tbDay.DataBindings.Add(new Binding ("Text",dtgvJob.DataSource,"Thứ",true, DataSourceUpdateMode.Never));
+            tbDay.DataBindings.Add(new Binding("Text", dtgvJob.DataSource, "Thứ", true, DataSourceUpdateMode.Never));
             tbMoneyEditDelete.DataBindings.Add(new Binding("Text", dtgvJob.DataSource, "Giá tiền", true, DataSourceUpdateMode.Never));
             tbAddress.DataBindings.Add(new Binding("Text", dtgvJob.DataSource, "Địa điểm", true, DataSourceUpdateMode.Never));
             dtpStartCourse.DataBindings.Add(new Binding("Value", dtgvJob.DataSource, "Thời gian bắt đầu lớp", true, DataSourceUpdateMode.Never));
             tbTime.DataBindings.Add(new Binding("Text", dtgvJob.DataSource, "Thời gian bắt đầu dạy", true, DataSourceUpdateMode.Never));
             dtpEndCourse.DataBindings.Add(new Binding("Value", dtgvJob.DataSource, "Thời gian kết thúc lớp", true, DataSourceUpdateMode.Never));
         }
-            public string checkCalender()
+        public string checkCalender()
         {
             string t2 = "";
             string t3 = "";
@@ -401,9 +407,9 @@ namespace QLGVFunction2
             {
                 t7 = "7";
             }
-            if (t2 != null || t3!=null||t4!=null||t5!=null||t6!=null||t7!=null)
+            if (t2 != null || t3 != null || t4 != null || t5 != null || t6 != null || t7 != null)
             {
-                t += t2+t3+t4+t5+t6+t7;
+                t += t2 + t3 + t4 + t5 + t6 + t7;
             }
             if (t != null)
             {
@@ -416,23 +422,23 @@ namespace QLGVFunction2
         }
         private void btnAddWork_Click(object sender, EventArgs e)
         {
-            
+
             string classCode = txbClassCode.Text;
-            
+
             string addressTeaching = txbAddress.Text;
             DateTime calenderStart = dtpStartDay.Value;
             DateTime calenderEnd = dtpEndDay.Value;
             string teachingDay = checkCalender();
-            string timeStart=txbStartHourMonday.Text;
+            string timeStart = txbStartHourMonday.Text;
             float money = 0;
-            if (string.IsNullOrEmpty( tbMoney.Text) )
+            if (string.IsNullOrEmpty(tbMoney.Text))
             {
 
                 MessageBox.Show("Nhập giá tiền!!!");
             }
             else
             {
-             money = (float)Convert.ChangeType(tbMoney.Text, typeof(float));
+                money = (float)Convert.ChangeType(tbMoney.Text, typeof(float));
             }
             try
             {
@@ -440,7 +446,7 @@ namespace QLGVFunction2
                 {
                     MessageBox.Show("Hãy nhập mã lớp khác!!!");
                 }
-               
+
                 if (calenderStart > calenderEnd)
                 {
                     MessageBox.Show("Sai thời gian!!!");
@@ -460,12 +466,14 @@ namespace QLGVFunction2
                 else
                 {
                     //addCourse(classCode,userId,teachingDay,timeStart,addressTeaching,calenderStart,calenderEnd);
-                    CourseDAO.Instance.AddTeaching(classCode, userId, teachingDay, timeStart, addressTeaching, calenderStart, calenderEnd, money );
+                    CourseDAO.Instance.AddTeaching(classCode, userId, teachingDay, timeStart, addressTeaching, calenderStart, calenderEnd, money);
                     MessageBox.Show("Thêm thành công!!!");
                     ShowAllJob();
+                    loadedData.Clear();
                     LoadCalendar(DateTime.Now);
                 }
-            }catch (Exception ex) { }
+            }
+            catch (Exception ex) { }
 
 
         }
@@ -473,7 +481,7 @@ namespace QLGVFunction2
         {
             string calenderStartStr = calenderStart.ToString("yyyy-MM-dd HH:mm:ss");
             string calenderEndStr = calenderEnd.ToString("yyyy-MM-dd HH:mm:ss");
-            CourseDAO.Instance.AddCourse(courseId,  userId,  teachingDay,  startingTime,  location, calenderStart, calenderEnd);
+            CourseDAO.Instance.AddCourse(courseId, userId, teachingDay, startingTime, location, calenderStart, calenderEnd);
         }
         void ShowAllJob()
         {
@@ -484,10 +492,12 @@ namespace QLGVFunction2
 
         private void btnPostMonth_Click(object sender, EventArgs e)
         {
+            if (isLoading) return;
             dtpInputDate.Value = dtpInputDate.Value.AddMonths(1);
         }
         private void btnPreMonth_Click(object sender, EventArgs e)
         {
+            if (isLoading) return;
             dtpInputDate.Value = dtpInputDate.Value.AddMonths(-1);
         }
         private void LoadTextTime(Panel pnl)
@@ -560,6 +570,8 @@ namespace QLGVFunction2
 
                 MessageBox.Show("Xóa thành công");
                 ShowAllJob();
+                loadedData.Clear();
+                LoadCalendar(DateTime.Now);
             }
             catch { }
         }
@@ -568,46 +580,47 @@ namespace QLGVFunction2
         {
             string classCode = tbCourseId.Text;
             string addressTeaching = tbAddress.Text;
-            DateTime calenderStart =dtpStartCourse.Value ;
-            DateTime calenderEnd =dtpEndCourse.Value;
+            DateTime calenderStart = dtpStartCourse.Value;
+            DateTime calenderEnd = dtpEndCourse.Value;
             string teachingDay = tbDay.Text;
             string timeStart = tbTime.Text;
             float money = 0;
-            if (   string.IsNullOrEmpty(  tbMoneyEditDelete.Text) )
+            if (string.IsNullOrEmpty(tbMoneyEditDelete.Text))
             {
 
                 MessageBox.Show("Nhập giá tiền!!!");
             }
             else
             {
-             money = (float)Convert.ChangeType(tbMoneyEditDelete.Text, typeof(float));
+                money = (float)Convert.ChangeType(tbMoneyEditDelete.Text, typeof(float));
 
             }
 
 
 
             if (calenderStart > calenderEnd)
-                {
-                    MessageBox.Show("Sai thời gian!!!");
-                }
-           
+            {
+                MessageBox.Show("Sai thời gian!!!");
+            }
+
             else if (string.IsNullOrEmpty(teachingDay))
-                {
-                    MessageBox.Show("Nhập thứ!!!");
-                }
-                else if (string.IsNullOrEmpty(timeStart))
-                {
-                    MessageBox.Show("Hãy nhập thời gian bắt đầu dạy!!!");
-                }
-                else
-                {
-                    //addCourse(classCode,userId,teachingDay,timeStart,addressTeaching,calenderStart,calenderEnd);
-                    CourseDAO.Instance.EditJob(classCode, userId, teachingDay, timeStart, addressTeaching, calenderStart, calenderEnd, money);
-                    MessageBox.Show("Sửa thành công!!!");
-                    ShowAllJob();
+            {
+                MessageBox.Show("Nhập thứ!!!");
+            }
+            else if (string.IsNullOrEmpty(timeStart))
+            {
+                MessageBox.Show("Hãy nhập thời gian bắt đầu dạy!!!");
+            }
+            else
+            {
+                //addCourse(classCode,userId,teachingDay,timeStart,addressTeaching,calenderStart,calenderEnd);
+                CourseDAO.Instance.EditJob(classCode, userId, teachingDay, timeStart, addressTeaching, calenderStart, calenderEnd, money);
+                MessageBox.Show("Sửa thành công!!!");
+                ShowAllJob();
+                loadedData.Clear();
                 LoadCalendar(DateTime.Now);
             }
-           
+
 
         }
 

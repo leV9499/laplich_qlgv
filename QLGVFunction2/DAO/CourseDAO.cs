@@ -21,13 +21,13 @@ namespace QLGVFunction2.DAO
         public DataTable GetCalendar(DateTime date, string userId)
         {
             //DataTable result = DataProvider.Instance.ExecuteQuery("exec GetCalendar @dateinput , @userId ", new object[] { date,userId });
-            DataTable result = DataProvider.Instance.ExecuteQuery($"exec GetCalendar '{ValidateService.ConvertToDateFormat(date.ToString())}' , {userId} ");
+            DataTable result = DataProvider.Instance.ExecuteQuery($"exec GetCalendar '{ValidateService.ConvertToDateFormat(date.ToString())}' , '{userId}' ");
             
             return result;
         }
         public bool CheckGetCalendar(string userId)
         {
-            DataTable result = DataProvider.Instance.ExecuteQuery("select * from Course where UserId = @userId", new object[] { userId });
+            DataTable result = DataProvider.Instance.ExecuteQuery("select * from Course where UserId = @userId ", new object[] { userId });
             return result.Rows.Count > 0;
         }
         public DataTable GetAbsentCalendar(DateTime date, string userId)
@@ -48,7 +48,7 @@ namespace QLGVFunction2.DAO
         public void AddTeaching(string courseId, string userId, string teachingDay, string startingTime, string location, DateTime calenderStart, DateTime calenderEnd, float money)
 
         {
-            DataProvider.Instance.ExecuteNonQuery($" insert into course values ('{courseId}' , '{userId}' , '{teachingDay}' , '{startingTime}' , '{location}' , '{calenderStart}' ,  '{calenderEnd}','{money}')", new object[] { });
+            DataProvider.Instance.ExecuteNonQuery($" insert into course values ('{courseId}' , '{userId}' , '{teachingDay}' , '{startingTime}' , '{location}' , '{ValidateService.ConvertToDateFormat( calenderStart.ToString())}' ,  '{ValidateService.ConvertToDateFormat(calenderEnd.ToString())}' , {money})");
         }
         public bool CheckCourseId(string id)
         {
