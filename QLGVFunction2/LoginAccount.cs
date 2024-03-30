@@ -48,7 +48,9 @@ namespace QLGVFunction2
                     MailService.sendMailOTP(userNameEmail, OTP);
 
                     VerifyOTP v = new VerifyOTP(OTP);
-                    v.Show();
+                    VerifyOTP demo= new VerifyOTP(OTP, username[0]);
+                    TrangChu t = new TrangChu(username[0]);
+                    t.Show();
                 }
                 catch (Exception ex)
                 {
