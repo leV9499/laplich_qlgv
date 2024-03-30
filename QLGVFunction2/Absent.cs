@@ -67,7 +67,7 @@ namespace QLGVFunction2
             int month = int.Parse(parts[0]);
             int day = int.Parse(parts[1]);
             int year = int.Parse(parts[2]);
-            string outputDate = $"{year}-{day:00}-{month:00}";
+            string outputDate = $"{year}-{month:00}-{day:00}";
 
             return outputDate;
         }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnAbsent = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -36,7 +37,6 @@
             this.txbStartTime = new System.Windows.Forms.TextBox();
             this.txbCourseID = new System.Windows.Forms.TextBox();
             this.dtgvListTeaching = new System.Windows.Forms.DataGridView();
-            this.btnAbsent = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvListTeaching)).BeginInit();
             this.SuspendLayout();
@@ -56,6 +56,16 @@
             this.panel1.Size = new System.Drawing.Size(1011, 537);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // btnAbsent
+            // 
+            this.btnAbsent.Location = new System.Drawing.Point(833, 453);
+            this.btnAbsent.Name = "btnAbsent";
+            this.btnAbsent.Size = new System.Drawing.Size(127, 47);
+            this.btnAbsent.TabIndex = 7;
+            this.btnAbsent.Text = "Báo vắng + dạy bù";
+            this.btnAbsent.UseVisualStyleBackColor = true;
+            this.btnAbsent.Click += new System.EventHandler(this.btnAbsent_Click);
             // 
             // label3
             // 
@@ -88,6 +98,7 @@
             // 
             this.txbLocation.Location = new System.Drawing.Point(741, 202);
             this.txbLocation.Name = "txbLocation";
+            this.txbLocation.ReadOnly = true;
             this.txbLocation.Size = new System.Drawing.Size(219, 22);
             this.txbLocation.TabIndex = 3;
             // 
@@ -95,6 +106,7 @@
             // 
             this.txbStartTime.Location = new System.Drawing.Point(741, 114);
             this.txbStartTime.Name = "txbStartTime";
+            this.txbStartTime.ReadOnly = true;
             this.txbStartTime.Size = new System.Drawing.Size(219, 22);
             this.txbStartTime.TabIndex = 2;
             // 
@@ -102,6 +114,7 @@
             // 
             this.txbCourseID.Location = new System.Drawing.Point(741, 30);
             this.txbCourseID.Name = "txbCourseID";
+            this.txbCourseID.ReadOnly = true;
             this.txbCourseID.Size = new System.Drawing.Size(219, 22);
             this.txbCourseID.TabIndex = 1;
             // 
@@ -114,16 +127,6 @@
             this.dtgvListTeaching.RowTemplate.Height = 24;
             this.dtgvListTeaching.Size = new System.Drawing.Size(554, 361);
             this.dtgvListTeaching.TabIndex = 0;
-            // 
-            // btnAbsent
-            // 
-            this.btnAbsent.Location = new System.Drawing.Point(833, 453);
-            this.btnAbsent.Name = "btnAbsent";
-            this.btnAbsent.Size = new System.Drawing.Size(127, 47);
-            this.btnAbsent.TabIndex = 7;
-            this.btnAbsent.Text = "Báo vắng + dạy bù";
-            this.btnAbsent.UseVisualStyleBackColor = true;
-            this.btnAbsent.Click += new System.EventHandler(this.btnAbsent_Click);
             // 
             // LichGiangDaycs
             // 

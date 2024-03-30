@@ -40,7 +40,7 @@ namespace QLGVFunction2.DAO
         }
         public void AddReportCourse(string userId, string courseId, string AbsentDate, string rescheduleDay)
         {
-            string query = string.Format("insert into ReportCourse values ( '{0}' , '{1}' , '{2}' , '{3}' )",userId,courseId,AbsentDate,rescheduleDay);
+            string query = string.Format("exec addAbsent '{0}','{1}' ,'{2}','{3}' ", userId,courseId,AbsentDate,rescheduleDay);
             DataProvider.Instance.ExecuteNonQuery(query);
         }
     }
