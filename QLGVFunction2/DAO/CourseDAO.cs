@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using QLGVFunction2.DTO;
 using QLGVFunction2.Service;
 namespace QLGVFunction2.DAO
 {
@@ -32,19 +33,42 @@ namespace QLGVFunction2.DAO
         }
         public DataTable GetAbsentCalendar(DateTime date, string userId)
         {
-            DataTable result = DataProvider.Instance.ExecuteQuery("exec GetReportCourse @date , @userid ",new object[] { ValidateService.ConvertToDateFormat(date.ToString()),userId});
+            DataTable result = DataProvider.Instance.ExecuteQuery("exec GetReportCourse @date , @userid ", new object[] { ValidateService.ConvertToDateFormat(date.ToString()), userId });
             return result;
         }
+
+
+        public string GetUserId(string courseId)
+        {
+            string userId = "";
+            string query = string.Format("select * from Course where courseId  = N'{0}'", courseId);
+            DataTable table = DataProvider.Instance.ExecuteQuery(query);
+
+            if (table.Rows.Count > 0)
+            {
+                DataRow dr = table.Rows[0];
+                Course c = new Course(dr);
+                userId = c.UserId;
+            }
+
+            return userId;
+        }
+
+     
         public bool CheckGetAbsentCalendar(string userId)
         {
             DataTable result = DataProvider.Instance.ExecuteQuery("select * from ReportCourse where userId = @userId",new object[] {userId});
             return result.Rows.Count > 0;
         }
         public void AddCourse(string courseId, string userId, string teachingDay, string startingTime, string location, DateTime calenderStart, DateTime calenderEnd)
+
        
         {
             DataProvider.Instance.ExecuteNonQuery($" exec addTeaching '{courseId}' , '{userId}' , '{teachingDay}' , '{startingTime}' , '{location}' , '{calenderStart}' ,  '{calenderEnd}' ", new object[] { });
         }
+
+
+
         public void AddTeaching(string courseId, string userId, string teachingDay, string startingTime, string location, DateTime calenderStart, DateTime calenderEnd, float money)
 
         {
@@ -52,7 +76,7 @@ namespace QLGVFunction2.DAO
         }
         public bool CheckCourseId(string id)
         {
-            string query = "select* from Course where courseId= @id";
+            string query = "select* from Course where courseId = @id";
 
             DataTable table = DataProvider.Instance.ExecuteQuery(query, new object[] { id });
 
@@ -62,7 +86,9 @@ namespace QLGVFunction2.DAO
         {
             string query = "select courseId as N'Mã lớp', Teachingday as N'Thứ',Location as N'Địa điểm', Price as N'Giá tiền' ,Startingtime as N'Thời gian bắt đầu dạy', calendarStart as N'Thời gian bắt đầu lớp', calendarEnd as N'Thời gian kết thúc lớp'from Course Where UserId= @user";
             DataTable table = DataProvider.Instance.ExecuteQuery(query, new object[] {user});
+
             return table;
+
         }
         public void DeleteJob(string id)
         {

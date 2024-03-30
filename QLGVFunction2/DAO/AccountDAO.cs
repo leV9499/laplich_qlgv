@@ -36,5 +36,6 @@ namespace QLGVFunction2.DAO
             DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { username, password });
             return result.Rows.Count > 0;
         }
+
     }
 }
