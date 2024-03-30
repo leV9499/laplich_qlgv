@@ -66,8 +66,8 @@ namespace QLGVFunction2.DAO
 
         public int ExecuteNonQuery(string query, object[] parameters = null)
         {
-            try
-            {
+            //try
+            //{
                 int data = 0;
                 using (SqlConnection connection = new SqlConnection(sqlString))
                 {
@@ -90,13 +90,13 @@ namespace QLGVFunction2.DAO
                     connection.Close();
                 }
                 return data;
-            }
-            catch (Exception ex)
-            {
-                string errorMessage = ex.Message;
-                Console.WriteLine("Lỗi rồi: " + errorMessage);
-                return -1;
-            }
+           //}
+            //catch (Exception ex)
+            //{
+            //    string errorMessage = ex.Message;
+            //    Console.WriteLine("Lỗi rồi: " + errorMessage);
+            //    return -1;
+            //}
         }
 
         public object ExecuteScalar(string query, object[] parameters = null)

@@ -97,16 +97,6 @@
             this.txbStartHourThursday = new System.Windows.Forms.TextBox();
             this.txbStartHourFriday = new System.Windows.Forms.TextBox();
             this.txbStartHourSaturday = new System.Windows.Forms.TextBox();
-            this.label46 = new System.Windows.Forms.Label();
-            this.label49 = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
-            this.label43 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.btnAddWork = new System.Windows.Forms.Button();
@@ -116,16 +106,29 @@
             this.cbWednesday = new System.Windows.Forms.CheckBox();
             this.cbTuesday = new System.Windows.Forms.CheckBox();
             this.cbMonday = new System.Windows.Forms.CheckBox();
-            this.txbSubjectName = new System.Windows.Forms.TextBox();
+            this.txbAddress = new System.Windows.Forms.TextBox();
             this.txbClassCode = new System.Windows.Forms.TextBox();
             this.dtpEndDay = new System.Windows.Forms.DateTimePicker();
             this.dtpStartDay = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.lbAddress = new System.Windows.Forms.Label();
+            this.tbpRemoveEditJob = new System.Windows.Forms.TabPage();
+            this.dtgvJob = new System.Windows.Forms.DataGridView();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tbTime = new System.Windows.Forms.TextBox();
+            this.tbAddress = new System.Windows.Forms.TextBox();
+            this.tbDay = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.tabTrangchu.SuspendLayout();
             this.tpXemlich.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -147,6 +150,8 @@
             this.panel6.SuspendLayout();
             this.pnEndTime.SuspendLayout();
             this.pnStartTime.SuspendLayout();
+            this.tbpRemoveEditJob.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvJob)).BeginInit();
             this.SuspendLayout();
             // 
             // tabTrangchu
@@ -154,6 +159,7 @@
             this.tabTrangchu.Controls.Add(this.tpXemlich);
             this.tabTrangchu.Controls.Add(this.tpThongtin);
             this.tabTrangchu.Controls.Add(this.tabPage1);
+            this.tabTrangchu.Controls.Add(this.tbpRemoveEditJob);
             this.tabTrangchu.Location = new System.Drawing.Point(12, 12);
             this.tabTrangchu.Name = "tabTrangchu";
             this.tabTrangchu.SelectedIndex = 0;
@@ -668,18 +674,9 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.lbAddress);
             this.panel6.Controls.Add(this.pnEndTime);
             this.panel6.Controls.Add(this.pnStartTime);
-            this.panel6.Controls.Add(this.label46);
-            this.panel6.Controls.Add(this.label49);
-            this.panel6.Controls.Add(this.label40);
-            this.panel6.Controls.Add(this.label43);
-            this.panel6.Controls.Add(this.label34);
-            this.panel6.Controls.Add(this.label37);
-            this.panel6.Controls.Add(this.label28);
-            this.panel6.Controls.Add(this.label31);
-            this.panel6.Controls.Add(this.label22);
-            this.panel6.Controls.Add(this.label25);
             this.panel6.Controls.Add(this.label19);
             this.panel6.Controls.Add(this.label14);
             this.panel6.Controls.Add(this.btnAddWork);
@@ -689,14 +686,13 @@
             this.panel6.Controls.Add(this.cbWednesday);
             this.panel6.Controls.Add(this.cbTuesday);
             this.panel6.Controls.Add(this.cbMonday);
-            this.panel6.Controls.Add(this.txbSubjectName);
+            this.panel6.Controls.Add(this.txbAddress);
             this.panel6.Controls.Add(this.txbClassCode);
             this.panel6.Controls.Add(this.dtpEndDay);
             this.panel6.Controls.Add(this.dtpStartDay);
             this.panel6.Controls.Add(this.label13);
             this.panel6.Controls.Add(this.label10);
             this.panel6.Controls.Add(this.label12);
-            this.panel6.Controls.Add(this.label11);
             this.panel6.Controls.Add(this.label9);
             this.panel6.Location = new System.Drawing.Point(3, 3);
             this.panel6.Name = "panel6";
@@ -722,6 +718,7 @@
             this.textTest.Name = "textTest";
             this.textTest.Size = new System.Drawing.Size(100, 22);
             this.textTest.TabIndex = 90;
+            this.textTest.Visible = false;
             // 
             // textBox2
             // 
@@ -736,6 +733,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 22);
             this.textBox3.TabIndex = 91;
+            this.textBox3.Visible = false;
             // 
             // textBox4
             // 
@@ -743,6 +741,7 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 22);
             this.textBox4.TabIndex = 92;
+            this.textBox4.Visible = false;
             // 
             // textBox5
             // 
@@ -750,6 +749,7 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(100, 22);
             this.textBox5.TabIndex = 93;
+            this.textBox5.Visible = false;
             // 
             // textBox6
             // 
@@ -757,6 +757,7 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(100, 22);
             this.textBox6.TabIndex = 94;
+            this.textBox6.Visible = false;
             // 
             // pnStartTime
             // 
@@ -777,6 +778,7 @@
             this.txbStartHourTuesday.Name = "txbStartHourTuesday";
             this.txbStartHourTuesday.Size = new System.Drawing.Size(100, 22);
             this.txbStartHourTuesday.TabIndex = 90;
+            this.txbStartHourTuesday.Visible = false;
             // 
             // txbStartHourMonday
             // 
@@ -791,6 +793,7 @@
             this.txbStartHourWednesday.Name = "txbStartHourWednesday";
             this.txbStartHourWednesday.Size = new System.Drawing.Size(100, 22);
             this.txbStartHourWednesday.TabIndex = 91;
+            this.txbStartHourWednesday.Visible = false;
             // 
             // txbStartHourThursday
             // 
@@ -798,6 +801,7 @@
             this.txbStartHourThursday.Name = "txbStartHourThursday";
             this.txbStartHourThursday.Size = new System.Drawing.Size(100, 22);
             this.txbStartHourThursday.TabIndex = 92;
+            this.txbStartHourThursday.Visible = false;
             // 
             // txbStartHourFriday
             // 
@@ -805,6 +809,7 @@
             this.txbStartHourFriday.Name = "txbStartHourFriday";
             this.txbStartHourFriday.Size = new System.Drawing.Size(100, 22);
             this.txbStartHourFriday.TabIndex = 93;
+            this.txbStartHourFriday.Visible = false;
             // 
             // txbStartHourSaturday
             // 
@@ -812,96 +817,7 @@
             this.txbStartHourSaturday.Name = "txbStartHourSaturday";
             this.txbStartHourSaturday.Size = new System.Drawing.Size(100, 22);
             this.txbStartHourSaturday.TabIndex = 94;
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(448, 397);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(111, 16);
-            this.label46.TabIndex = 88;
-            this.label46.Text = "Thời gian kết thúc";
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(162, 393);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(111, 16);
-            this.label49.TabIndex = 83;
-            this.label49.Text = "Thời gian bắt đầu";
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(448, 355);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(111, 16);
-            this.label40.TabIndex = 78;
-            this.label40.Text = "Thời gian kết thúc";
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(162, 351);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(111, 16);
-            this.label43.TabIndex = 73;
-            this.label43.Text = "Thời gian bắt đầu";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(448, 312);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(111, 16);
-            this.label34.TabIndex = 68;
-            this.label34.Text = "Thời gian kết thúc";
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(162, 308);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(111, 16);
-            this.label37.TabIndex = 63;
-            this.label37.Text = "Thời gian bắt đầu";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(448, 273);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(111, 16);
-            this.label28.TabIndex = 58;
-            this.label28.Text = "Thời gian kết thúc";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(162, 269);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(111, 16);
-            this.label31.TabIndex = 53;
-            this.label31.Text = "Thời gian bắt đầu";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(448, 235);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(111, 16);
-            this.label22.TabIndex = 48;
-            this.label22.Text = "Thời gian kết thúc";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(162, 231);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(111, 16);
-            this.label25.TabIndex = 43;
-            this.label25.Text = "Thời gian bắt đầu";
+            this.txbStartHourSaturday.Visible = false;
             // 
             // label19
             // 
@@ -993,12 +909,12 @@
             this.cbMonday.UseVisualStyleBackColor = true;
             this.cbMonday.CheckedChanged += new System.EventHandler(this.cbMonday_CheckedChanged);
             // 
-            // txbSubjectName
+            // txbAddress
             // 
-            this.txbSubjectName.Location = new System.Drawing.Point(165, 51);
-            this.txbSubjectName.Name = "txbSubjectName";
-            this.txbSubjectName.Size = new System.Drawing.Size(526, 22);
-            this.txbSubjectName.TabIndex = 9;
+            this.txbAddress.Location = new System.Drawing.Point(165, 51);
+            this.txbAddress.Name = "txbAddress";
+            this.txbAddress.Size = new System.Drawing.Size(526, 22);
+            this.txbAddress.TabIndex = 9;
             // 
             // txbClassCode
             // 
@@ -1050,16 +966,6 @@
             this.label12.Size = new System.Drawing.Size(0, 16);
             this.label12.TabIndex = 3;
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(28, 57);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(85, 16);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "Tên môn học";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -1074,6 +980,136 @@
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // lbAddress
+            // 
+            this.lbAddress.AutoSize = true;
+            this.lbAddress.Location = new System.Drawing.Point(37, 57);
+            this.lbAddress.Name = "lbAddress";
+            this.lbAddress.Size = new System.Drawing.Size(47, 16);
+            this.lbAddress.TabIndex = 103;
+            this.lbAddress.Text = "Địa chỉ";
+            // 
+            // tbpRemoveEditJob
+            // 
+            this.tbpRemoveEditJob.Controls.Add(this.dateTimePicker2);
+            this.tbpRemoveEditJob.Controls.Add(this.dateTimePicker1);
+            this.tbpRemoveEditJob.Controls.Add(this.label20);
+            this.tbpRemoveEditJob.Controls.Add(this.label18);
+            this.tbpRemoveEditJob.Controls.Add(this.label17);
+            this.tbpRemoveEditJob.Controls.Add(this.label16);
+            this.tbpRemoveEditJob.Controls.Add(this.label15);
+            this.tbpRemoveEditJob.Controls.Add(this.tbAddress);
+            this.tbpRemoveEditJob.Controls.Add(this.tbTime);
+            this.tbpRemoveEditJob.Controls.Add(this.tbDay);
+            this.tbpRemoveEditJob.Controls.Add(this.label11);
+            this.tbpRemoveEditJob.Controls.Add(this.dtgvJob);
+            this.tbpRemoveEditJob.Location = new System.Drawing.Point(4, 25);
+            this.tbpRemoveEditJob.Name = "tbpRemoveEditJob";
+            this.tbpRemoveEditJob.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpRemoveEditJob.Size = new System.Drawing.Size(1035, 501);
+            this.tbpRemoveEditJob.TabIndex = 3;
+            this.tbpRemoveEditJob.Text = "Xóa và sửa công việc";
+            this.tbpRemoveEditJob.UseVisualStyleBackColor = true;
+            // 
+            // dtgvJob
+            // 
+            this.dtgvJob.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvJob.Location = new System.Drawing.Point(19, 66);
+            this.dtgvJob.Name = "dtgvJob";
+            this.dtgvJob.RowHeadersWidth = 51;
+            this.dtgvJob.RowTemplate.Height = 24;
+            this.dtgvJob.Size = new System.Drawing.Size(486, 378);
+            this.dtgvJob.TabIndex = 0;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(218, 33);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(67, 16);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Công việc";
+            // 
+            // tbTime
+            // 
+            this.tbTime.Location = new System.Drawing.Point(711, 202);
+            this.tbTime.Name = "tbTime";
+            this.tbTime.Size = new System.Drawing.Size(245, 22);
+            this.tbTime.TabIndex = 5;
+            // 
+            // tbAddress
+            // 
+            this.tbAddress.Location = new System.Drawing.Point(711, 145);
+            this.tbAddress.Name = "tbAddress";
+            this.tbAddress.Size = new System.Drawing.Size(245, 22);
+            this.tbAddress.TabIndex = 6;
+            // 
+            // tbDay
+            // 
+            this.tbDay.Location = new System.Drawing.Point(711, 77);
+            this.tbDay.Name = "tbDay";
+            this.tbDay.Size = new System.Drawing.Size(245, 22);
+            this.tbDay.TabIndex = 2;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(545, 83);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(30, 16);
+            this.label15.TabIndex = 7;
+            this.label15.Text = "Thứ";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(545, 135);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(60, 16);
+            this.label16.TabIndex = 8;
+            this.label16.Text = "Địa điểm";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(545, 205);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(137, 16);
+            this.label17.TabIndex = 9;
+            this.label17.Text = "Thời gian bắt đầu dạy";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(545, 280);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(144, 16);
+            this.label18.TabIndex = 10;
+            this.label18.Text = "Thời gian bắt đầu khóa";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(545, 358);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(138, 16);
+            this.label20.TabIndex = 11;
+            this.label20.Text = "thời gian kết thúc khóa";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(713, 282);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(243, 22);
+            this.dateTimePicker1.TabIndex = 12;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(711, 358);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(243, 22);
+            this.dateTimePicker2.TabIndex = 13;
             // 
             // TrangChu
             // 
@@ -1115,6 +1151,9 @@
             this.pnEndTime.PerformLayout();
             this.pnStartTime.ResumeLayout(false);
             this.pnStartTime.PerformLayout();
+            this.tbpRemoveEditJob.ResumeLayout(false);
+            this.tbpRemoveEditJob.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvJob)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1177,7 +1216,6 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnAddWork;
@@ -1187,23 +1225,13 @@
         private System.Windows.Forms.CheckBox cbWednesday;
         private System.Windows.Forms.CheckBox cbTuesday;
         private System.Windows.Forms.CheckBox cbMonday;
-        private System.Windows.Forms.TextBox txbSubjectName;
+        private System.Windows.Forms.TextBox txbAddress;
         private System.Windows.Forms.TextBox txbClassCode;
         private System.Windows.Forms.DateTimePicker dtpEndDay;
         private System.Windows.Forms.DateTimePicker dtpStartDay;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.Label label49;
-        private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox txbStartHourFriday;
         private System.Windows.Forms.TextBox txbStartHourThursday;
@@ -1219,6 +1247,19 @@
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Panel pnStartTime;
         private System.Windows.Forms.TextBox textTest;
-
+        private System.Windows.Forms.Label lbAddress;
+        private System.Windows.Forms.TabPage tbpRemoveEditJob;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DataGridView dtgvJob;
+        private System.Windows.Forms.TextBox tbAddress;
+        private System.Windows.Forms.TextBox tbTime;
+        private System.Windows.Forms.TextBox tbDay;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
     }
 }
