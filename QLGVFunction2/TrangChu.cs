@@ -4,19 +4,27 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using QLGVFunction2.Service;
 using System.Drawing;
-
+using System.Data;
+using QLGVFunction2.DAO;
+using System.Linq;
+using System.Data.Common;
 namespace QLGVFunction2
 {
     public partial class TrangChu : Form
     {
         private List<List<Button>> matrix;
         private List<string> dateOfWeek = new List<string>() { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+        private Dictionary<DateTime, DataTable[]> loadedData = new Dictionary<DateTime, DataTable[]>();
+        private DataTable calendarCurMonth;
+        private DataTable absentDays;
         public TrangChu()
         {
             InitializeComponent();
-            LoadMatrix(DateTime.Now);
+            LoadCalendar(DateTime.Now);
+            LoadTextTime(pnStartTime);
+            LoadTextTime(pnEndTime);
         }
-        void LoadMatrix(DateTime date)
+        void LoadCalendar(DateTime date)
         {
             matrix = new List<List<Button>>();
             pnlMatrix.Controls.Clear();
@@ -28,7 +36,6 @@ namespace QLGVFunction2
                 {
                     Button btn = new Button() { Width = Cons.dateButtonWidth, Height = Cons.dateButtonHeight };
                     btn.Location = new Point(oldBtn.Location.X + oldBtn.Width + Cons.margin, oldBtn.Location.Y);
-
                     pnlMatrix.Controls.Add(btn);
                     matrix[i].Add(btn);
                     oldBtn = btn;
@@ -37,34 +44,10 @@ namespace QLGVFunction2
             }
             AddNumberToMatrixByDate(date);
         }
-        int DayOfMonth(DateTime date)
-        {
-            switch (date.Month)
-            {
-                case 1:
-                case 3:
-                case 5:
-                case 7:
-                case 8:
-                case 10:
-                case 12:
-                    return 31;
-                case 2:
-                    if ((date.Year % 4 == 0 && date.Year % 100 != 0) || date.Year % 400 == 0)
-                        return 29;
-                    else
-                        return 28;
-                    break;
-                default:
-                    return 30;
-            }
-        }
         void AddNumberToMatrixByDate(DateTime date)
         {
             DateTime useDate = new DateTime(date.Year, date.Month, 1);
             int line = 0;
-
-            //for (int i = 1; i <= DayOfMonth(date); i++)
             for (int i = 1; i <= DateTime.DaysInMonth(date.Year, date.Month); i++)
             {
                 int column = dateOfWeek.IndexOf(useDate.DayOfWeek.ToString());
@@ -77,8 +60,95 @@ namespace QLGVFunction2
                 //}
                 useDate = useDate.AddDays(1);
             }
+            Task t = new Task(async () =>
+            {
+                //TODO
+                useDate = new DateTime(date.Year, date.Month, 1);
+                line = 0;
+                if (loadedData.ContainsKey(useDate))
+                {
+                    calendarCurMonth = loadedData[useDate][0];
+                    absentDays = loadedData[useDate][1];
+                }
+                else
+                {
+                    calendarCurMonth = CourseDAO.Instance.GetCalendar(date, "minh");
+                    absentDays = CourseDAO.Instance.GetAbsentCalendar(date, "minh");
+                    loadedData.Add(useDate, new DataTable[] { calendarCurMonth, absentDays });
+                }
+                int days = DateTime.DaysInMonth(date.Year, date.Month);
+                for (int i = 1; i <= days; i++)
+                {
+                    int column = dateOfWeek.IndexOf(useDate.DayOfWeek.ToString());
+                    Button btn = matrix[line][column];
+                    if (CheckTeachingday(useDate, (column + 2).ToString()))
+                    {
+                        if (btn.InvokeRequired)
+                        {
+                            DateTime tmp = useDate;
+                            btn.BeginInvoke(new Action(() =>
+                            {
+                                btn.Tag = tmp;
+                                btn.BackColor = Color.LightCyan;
+                                //btn.Tag = useDate.ToString();
+                                btn.Click += ChooseDateBtnClick;
+                            }));
+                        }
+                        else
+                        {
+                            btn.Tag = useDate;
+                            btn.Click += ChooseDateBtnClick;
+                            btn.BackColor = Color.LightCyan;
+                        }
+                    }
+                    if (column >= 6)
+                        line++;
+                    useDate = useDate.AddDays(1);
+                }
+            });
+            t.Start();
         }
-
+        private void ChooseDateBtnClick(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            DateTime date = (DateTime)btn.Tag;
+            DataTable data = GetInfoDay(date);
+            LichGiangDaycs lichGiangDaycs = new LichGiangDaycs(data);
+            lichGiangDaycs.Show();
+        }
+        private DataTable GetInfoDay(DateTime date)
+        {
+            DataTable data = new DataTable();
+            data.Columns.Add(new DataColumn("Course Id"));
+            data.Columns.Add(new DataColumn("Starting time"));
+            data.Columns.Add(new DataColumn("Location"));
+            string dateOfWeekStr = (dateOfWeek.IndexOf(date.DayOfWeek.ToString()) + 2).ToString();
+            foreach (DataRow row in calendarCurMonth.AsEnumerable()
+                .Where(r => !absentDays.AsEnumerable().Any(a => a.Field<string>("courseId") == r.Field<string>("courseId") && a.Field<DateTime>("Absentdate").Date == date.Date) && r.Field<string>("Teachingday").Split('-').Contains(dateOfWeekStr)
+                )
+            )
+            {
+                data.Rows.Add(row.Field<string>("courseId"), row.Field<string>("Startingtime"), row.Field<string>("Location"));
+            }
+            foreach (DataRow row in absentDays.AsEnumerable().Where(a => a.Field<DateTime>("rescheduleday").Date == date.Date))
+            {
+                data.Rows.Add(row.Field<string>("courseId"), row.Field<DateTime>("rescheduleday").TimeOfDay, calendarCurMonth.AsEnumerable().Where(r => r.Field<string>("courseId") == row.Field<string>("courseId")).First().Field<string>("Location"));
+            }
+            return data;
+        }
+        private bool CheckTeachingday(DateTime useDate, string dayInWeek)
+        {
+            return CheckScheduleday(useDate, dayInWeek) || CheckRescheduleday(useDate);
+        }
+        private bool CheckScheduleday(DateTime useDate, string dayInWeek)
+        {
+            return calendarCurMonth.AsEnumerable()
+                .Where(r => r.Field<DateTime>("calendarStart") < useDate && r.Field<DateTime>("calendarEnd") > useDate && r.Field<string>("Teachingday").Split('-').Contains((dayInWeek).ToString()) && !absentDays.AsEnumerable().Any(a => a.Field<string>("courseId") == r.Field<string>("courseId") && a.Field<DateTime>("Absentdate").Date == useDate.Date)).Count() != 0;
+        }
+        private bool CheckRescheduleday(DateTime useDate)
+        {
+            return absentDays.AsEnumerable().Any(a => a.Field<DateTime>("rescheduleday").Date == useDate.Date);
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             string filepath = "";
@@ -172,7 +242,6 @@ namespace QLGVFunction2
             }
             else pnl.Visible = visible;
         }
-
         private void btnOpenPDF_Click(object sender, EventArgs e)
         {
             try
@@ -187,103 +256,93 @@ namespace QLGVFunction2
             }
             catch { }
         }
-
         private void dtpInputDate_ValueChanged(object sender, EventArgs e)
         {
-            LoadMatrix(dtpInputDate.Value);
+            LoadCalendar(dtpInputDate.Value);
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
-
         private void label11_Click(object sender, EventArgs e)
         {
-
         }
-
         private void cbMonday_CheckedChanged(object sender, EventArgs e)
         {
-
         }
-
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
-
         }
-
         private void label13_Click(object sender, EventArgs e)
         {
-
         }
-
         private void label14_Click(object sender, EventArgs e)
         {
-
         }
-
         private void btnAddWork_Click(object sender, EventArgs e)
         {
             string classCode = txbClassCode.Text;
             string subJectName = txbSubjectName.Text;
-
         }
         private void btnPostMonth_Click(object sender, EventArgs e)
         {
             dtpInputDate.Value = dtpInputDate.Value.AddMonths(1);
         }
-
         private void btnPreMonth_Click(object sender, EventArgs e)
         {
             dtpInputDate.Value = dtpInputDate.Value.AddMonths(-1);
         }
-
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        private void LoadTextTime(Panel pnl)
         {
+            foreach (var item in pnl.Controls)
+            {
+                (item as TextBox).Text = "00:00";
+                (item as TextBox).TextChanged += TxtChanged;
+                (item as TextBox).KeyPress += TxtKeyPress;
+            }
+        }
+        private void TxtKeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox txtBox = sender as TextBox;
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
             }
-            if (textBox1.Text.Length >= 5 && e.KeyChar != '\b')
+            if (txtBox.Text.Length >= 5 && e.KeyChar != '\b')
             {
                 e.Handled = true;
             }
-            if (textBox1.Text.Length == 1 && e.KeyChar != ':')
+            if (txtBox.Text.Length == 1 && e.KeyChar != ':')
             {
                 e.Handled = true;
             }
-            else if (textBox1.Text.Length == 2 && e.KeyChar != '\b')
+            else if (txtBox.Text.Length == 2 && e.KeyChar != '\b')
             {
                 e.Handled = true;
-                textBox1.Text += ':';
+                txtBox.Text += ':';
             }
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void TxtChanged(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length == 0)
+            TextBox txtBox = sender as TextBox;
+            if (txtBox.Text.Length == 0)
             {
-                textBox1.Text += "00:00";
+                txtBox.Text += "00:00";
             }
-            if (textBox1.Text.Length <= 2 && !textBox1.Text.Contains(":"))
+            if (txtBox.Text.Length <= 2 && !txtBox.Text.Contains(":"))
             {
-                textBox1.Text += ":0";
+                txtBox.Text += ":0";
             }
             try
             {
-                string[] arr = textBox1.Text.Split(':');
+                string[] arr = txtBox.Text.Split(':');
                 if (int.Parse(arr[0]) >= 24)
                 {
-                    textBox1.Text = "00:00";
+                    txtBox.Text = "00:00";
                 }
                 if (int.Parse(arr[1]) > 59)
                 {
-                    textBox1.Text = arr[0] + ":00";
+                    txtBox.Text = arr[0] + ":00";
                 }
             }
             catch { }
