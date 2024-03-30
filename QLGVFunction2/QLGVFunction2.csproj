@@ -161,11 +161,20 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Absent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Absent.Designer.cs">
+      <DependentUpon>Absent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cons.cs" />
     <Compile Include="CONSTDATA\CONST.cs" />
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\CourseDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\ReportCourseDAO.cs" />
+    <Compile Include="DTO\Course.cs" />
+    <Compile Include="DTO\ReportCourse.cs" />
     <Compile Include="Service\ValidateService.cs" />
     <Compile Include="DTO\Account.cs" />
     <Compile Include="Form1.cs">
@@ -209,6 +218,9 @@
     <Compile Include="VerifyOTP.designer.cs">
       <DependentUpon>VerifyOTP.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Absent.resx">
+      <DependentUpon>Absent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
