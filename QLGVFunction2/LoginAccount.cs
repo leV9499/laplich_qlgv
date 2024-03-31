@@ -72,9 +72,9 @@ namespace QLGVFunction2
 
         private void buttonSignIn_Click(object sender, EventArgs e)
         {
-            
-            //signIn s = new signIn();
-            //s.ShowDialog();
+
+            signIn s = new signIn();
+            s.ShowDialog();
 
         }
 
@@ -94,6 +94,12 @@ namespace QLGVFunction2
                 else tBoxPassword.Text = ((Credential)cbUsername.SelectedItem).Password;
             }
             catch { }
+        }
+
+        private void btnForgotPassword_Click(object sender, EventArgs e)
+        {
+            ForgotPassForm forgot = new ForgotPassForm();
+            forgot.Show();
         }
     }
 }
