@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txbMail = new System.Windows.Forms.TextBox();
             this.btnConfirm = new System.Windows.Forms.Button();
+            this.txbMail = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,14 +45,15 @@
             this.panel1.Size = new System.Drawing.Size(642, 325);
             this.panel1.TabIndex = 0;
             // 
-            // label2
+            // btnConfirm
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(42, 128);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 16);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Nhập Email đăng kí";
+            this.btnConfirm.Location = new System.Drawing.Point(278, 238);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(145, 23);
+            this.btnConfirm.TabIndex = 4;
+            this.btnConfirm.Text = "Xác nhận";
+            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // txbMail
             // 
@@ -61,15 +62,14 @@
             this.txbMail.Size = new System.Drawing.Size(237, 22);
             this.txbMail.TabIndex = 3;
             // 
-            // btnConfirm
+            // label2
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(301, 237);
-            this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(75, 23);
-            this.btnConfirm.TabIndex = 4;
-            this.btnConfirm.Text = "Xác nhận";
-            this.btnConfirm.UseVisualStyleBackColor = true;
-            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(42, 128);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(124, 16);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Nhập Email đăng kí";
             // 
             // ForgotPassForm
             // 

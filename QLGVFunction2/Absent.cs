@@ -1,4 +1,5 @@
 ﻿using QLGVFunction2.DAO;
+using QLGVFunction2.Service;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,8 +45,8 @@ namespace QLGVFunction2
   
             string userId = CourseDAO.Instance.GetUserId(courseId);
             
-            string dateAbsent = ConvertDateFormat(dtpAbsent.Text);
-            string dateReschedule = ConvertDateFormat(dtpReschedule.Text);
+            string dateAbsent = ValidateService.ConvertDate(dtpAbsent.Text); 
+            string dateReschedule = ValidateService.ConvertDate(dtpReschedule.Text);
             string DatetimeAbsent = dateAbsent+" "+ txbAbsentTime.Text;
             string DatetimeReschedule = dateReschedule +" "+ txbRescheduleTime.Text;
             string courseCode = txbCourseId.Text;

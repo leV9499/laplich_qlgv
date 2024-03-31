@@ -37,14 +37,12 @@
             this.txbStartTime = new System.Windows.Forms.TextBox();
             this.txbCourseID = new System.Windows.Forms.TextBox();
             this.dtgvListTeaching = new System.Windows.Forms.DataGridView();
-            this.btnExportExcel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvListTeaching)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnExportExcel);
             this.panel1.Controls.Add(this.btnAbsent);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
@@ -130,16 +128,6 @@
             this.dtgvListTeaching.Size = new System.Drawing.Size(554, 361);
             this.dtgvListTeaching.TabIndex = 0;
             // 
-            // btnExportExcel
-            // 
-            this.btnExportExcel.Location = new System.Drawing.Point(556, 420);
-            this.btnExportExcel.Name = "btnExportExcel";
-            this.btnExportExcel.Size = new System.Drawing.Size(75, 23);
-            this.btnExportExcel.TabIndex = 8;
-            this.btnExportExcel.Text = "Export";
-            this.btnExportExcel.UseVisualStyleBackColor = true;
-            this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
-            // 
             // LichGiangDaycs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -166,6 +154,5 @@
         private System.Windows.Forms.TextBox txbStartTime;
         private System.Windows.Forms.TextBox txbCourseID;
         private System.Windows.Forms.Button btnAbsent;
-        private System.Windows.Forms.Button btnExportExcel;
     }
 }

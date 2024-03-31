@@ -143,6 +143,7 @@
             this.dtgvStatistic = new System.Windows.Forms.DataGridView();
             this.dtpInputDate2 = new System.Windows.Forms.DateTimePicker();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btnExportExcel = new System.Windows.Forms.Button();
             this.tabTrangchu.SuspendLayout();
             this.tpXemlich.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -1227,6 +1228,7 @@
             // 
             // tabStatistic
             // 
+            this.tabStatistic.Controls.Add(this.btnExportExcel);
             this.tabStatistic.Controls.Add(this.lbTotal);
             this.tabStatistic.Controls.Add(this.dtgvStatistic);
             this.tabStatistic.Controls.Add(this.dtpInputDate2);
@@ -1275,6 +1277,16 @@
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // btnExportExcel
+            // 
+            this.btnExportExcel.Location = new System.Drawing.Point(831, 368);
+            this.btnExportExcel.Name = "btnExportExcel";
+            this.btnExportExcel.Size = new System.Drawing.Size(179, 69);
+            this.btnExportExcel.TabIndex = 3;
+            this.btnExportExcel.Text = "Xuất ra file excel";
+            this.btnExportExcel.UseVisualStyleBackColor = true;
+            this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
             // 
             // TrangChu
             // 
@@ -1445,5 +1457,6 @@
         private System.Windows.Forms.DataGridView dtgvStatistic;
         private System.Windows.Forms.DateTimePicker dtpInputDate2;
         private System.Windows.Forms.Label lbTotal;
+        private System.Windows.Forms.Button btnExportExcel;
     }
 }

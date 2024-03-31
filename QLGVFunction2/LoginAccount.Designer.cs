@@ -31,6 +31,7 @@
             this.panelTitleDN = new System.Windows.Forms.Panel();
             this.titleDN = new System.Windows.Forms.Label();
             this.khungLogin = new System.Windows.Forms.Panel();
+            this.btnForgotPassword = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.checkboxRemember = new System.Windows.Forms.CheckBox();
             this.buttonSignIn = new System.Windows.Forms.Button();
@@ -41,7 +42,6 @@
             this.khungUser = new System.Windows.Forms.Panel();
             this.tenDangNhap = new System.Windows.Forms.Label();
             this.cbUsername = new System.Windows.Forms.ComboBox();
-            this.btnForgotPassword = new System.Windows.Forms.Button();
             this.panelTitleDN.SuspendLayout();
             this.khungLogin.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -81,6 +81,16 @@
             this.khungLogin.Name = "khungLogin";
             this.khungLogin.Size = new System.Drawing.Size(539, 236);
             this.khungLogin.TabIndex = 3;
+            // 
+            // btnForgotPassword
+            // 
+            this.btnForgotPassword.Location = new System.Drawing.Point(192, 194);
+            this.btnForgotPassword.Name = "btnForgotPassword";
+            this.btnForgotPassword.Size = new System.Drawing.Size(154, 23);
+            this.btnForgotPassword.TabIndex = 4;
+            this.btnForgotPassword.Text = "Quên mật khẩu";
+            this.btnForgotPassword.UseVisualStyleBackColor = true;
+            this.btnForgotPassword.Click += new System.EventHandler(this.btnForgotPassword_Click);
             // 
             // panel1
             // 
@@ -190,16 +200,6 @@
             this.cbUsername.Size = new System.Drawing.Size(355, 24);
             this.cbUsername.TabIndex = 5;
             this.cbUsername.SelectedIndexChanged += new System.EventHandler(this.cbUsername_SelectedIndexChanged);
-            // 
-            // btnForgotPassword
-            // 
-            this.btnForgotPassword.Location = new System.Drawing.Point(192, 194);
-            this.btnForgotPassword.Name = "btnForgotPassword";
-            this.btnForgotPassword.Size = new System.Drawing.Size(113, 23);
-            this.btnForgotPassword.TabIndex = 4;
-            this.btnForgotPassword.Text = "Quên mật khẩu";
-            this.btnForgotPassword.UseVisualStyleBackColor = true;
-            this.btnForgotPassword.Click += new System.EventHandler(this.btnForgotPassword_Click);
             // 
             // LoginAccount
             // 

@@ -10,6 +10,7 @@ using System.Linq;
 using System.Data.Common;
 using Microsoft.IdentityModel.Tokens;
 using System.Diagnostics;
+using ClosedXML.Excel;
 
 namespace QLGVFunction2
 {
@@ -719,6 +720,45 @@ namespace QLGVFunction2
             //dtgvStatistic.DataSource = dt;
         }
 
-      
+        private void btnExportExcel_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "Excel Workbook|*.xlsx";
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        using (XLWorkbook workbook = new XLWorkbook())
+                        {
+                            DataTable dt = new DataTable();
+                            foreach (DataGridViewColumn column in dtgvStatistic.Columns)
+                            {
+                                dt.Columns.Add(column.HeaderText, column.ValueType);
+                            }
+                            foreach (DataGridViewRow row in dtgvStatistic.Rows)
+                            {
+                                dt.Rows.Add();
+                                foreach (DataGridViewCell cell in row.Cells)
+                                {
+                                    if (cell.Value != null)
+                                    {
+                                        dt.Rows[dt.Rows.Count - 1][cell.ColumnIndex] = cell.Value.ToString();
+                                    }
+                                }
+                            }
+                            workbook.Worksheets.Add(dt, "WorksheetName");
+                            workbook.SaveAs(sfd.FileName);
+                            MessageBox.Show("You have successfully exported your data to an excel file.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Fail: " + ex.Message);
+                    }
+                }
+            }
+
+        }
     }
 }

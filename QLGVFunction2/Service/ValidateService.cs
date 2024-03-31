@@ -116,5 +116,10 @@ namespace QLGVFunction2.Service
         {
             return str.Any(char.IsDigit);
         }
+        public static string ConvertDate(string inputDate)
+        {
+            DateTime dt = DateTime.ParseExact(inputDate, "M/d/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+            return dt.ToString("yyyy-MM-dd");
+        }
     }
 }
