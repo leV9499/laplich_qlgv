@@ -138,11 +138,11 @@
             this.tbDay = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.dtgvJob = new System.Windows.Forms.DataGridView();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tabStatistic = new System.Windows.Forms.TabPage();
-            this.dtpInputDate2 = new System.Windows.Forms.DateTimePicker();
+            this.lbTotal = new System.Windows.Forms.Label();
             this.dtgvStatistic = new System.Windows.Forms.DataGridView();
-            this.label23 = new System.Windows.Forms.Label();
+            this.dtpInputDate2 = new System.Windows.Forms.DateTimePicker();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tabTrangchu.SuspendLayout();
             this.tpXemlich.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -195,6 +195,7 @@
             this.tpXemlich.TabIndex = 0;
             this.tpXemlich.Text = "Lịch Dạy";
             this.tpXemlich.UseVisualStyleBackColor = true;
+            this.tpXemlich.Click += new System.EventHandler(this.tpXemlich_Click);
             // 
             // panel3
             // 
@@ -1224,15 +1225,9 @@
             this.dtgvJob.Size = new System.Drawing.Size(486, 378);
             this.dtgvJob.TabIndex = 0;
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // tabStatistic
             // 
-            this.tabStatistic.Controls.Add(this.label23);
+            this.tabStatistic.Controls.Add(this.lbTotal);
             this.tabStatistic.Controls.Add(this.dtgvStatistic);
             this.tabStatistic.Controls.Add(this.dtpInputDate2);
             this.tabStatistic.Location = new System.Drawing.Point(4, 25);
@@ -1242,14 +1237,17 @@
             this.tabStatistic.TabIndex = 4;
             this.tabStatistic.Text = "Thống kê";
             this.tabStatistic.UseVisualStyleBackColor = true;
+            this.tabStatistic.Click += new System.EventHandler(this.tabStatistic_Click);
             // 
-            // dtpInputDate2
+            // lbTotal
             // 
-            this.dtpInputDate2.Location = new System.Drawing.Point(236, 27);
-            this.dtpInputDate2.Name = "dtpInputDate2";
-            this.dtpInputDate2.Size = new System.Drawing.Size(200, 22);
-            this.dtpInputDate2.TabIndex = 0;
-            this.dtpInputDate2.ValueChanged += new System.EventHandler(this.dtpInputDate2_ValueChanged);
+            this.lbTotal.AutoSize = true;
+            this.lbTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotal.Location = new System.Drawing.Point(419, 405);
+            this.lbTotal.Name = "lbTotal";
+            this.lbTotal.Size = new System.Drawing.Size(275, 32);
+            this.lbTotal.TabIndex = 2;
+            this.lbTotal.Text = "Tổng thu nhập = 100";
             // 
             // dtgvStatistic
             // 
@@ -1264,14 +1262,19 @@
             this.dtgvStatistic.Size = new System.Drawing.Size(607, 302);
             this.dtgvStatistic.TabIndex = 1;
             // 
-            // label23
+            // dtpInputDate2
             // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(742, 367);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(97, 16);
-            this.label23.TabIndex = 2;
-            this.label23.Text = "Tổng tiền = 100";
+            this.dtpInputDate2.Location = new System.Drawing.Point(236, 27);
+            this.dtpInputDate2.Name = "dtpInputDate2";
+            this.dtpInputDate2.Size = new System.Drawing.Size(200, 22);
+            this.dtpInputDate2.TabIndex = 0;
+            this.dtpInputDate2.ValueChanged += new System.EventHandler(this.dtpInputDate2_ValueChanged_1);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // TrangChu
             // 
@@ -1441,6 +1444,6 @@
         private System.Windows.Forms.TabPage tabStatistic;
         private System.Windows.Forms.DataGridView dtgvStatistic;
         private System.Windows.Forms.DateTimePicker dtpInputDate2;
-        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label lbTotal;
     }
 }

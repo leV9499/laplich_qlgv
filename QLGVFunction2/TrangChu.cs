@@ -9,6 +9,8 @@ using QLGVFunction2.DAO;
 using System.Linq;
 using System.Data.Common;
 using Microsoft.IdentityModel.Tokens;
+using System.Diagnostics;
+
 namespace QLGVFunction2
 {
     public partial class TrangChu : Form
@@ -333,6 +335,7 @@ namespace QLGVFunction2
         }
         private void dtpInputDate_ValueChanged(object sender, EventArgs e)
         {
+            if(isLoading) return;
             LoadCalendar(dtpInputDate.Value);
         }
 
@@ -631,17 +634,25 @@ namespace QLGVFunction2
 
         }
 
-        private void dtpInputDate2_ValueChanged(object sender, EventArgs e)
+        
+
+        private void tabStatistic_Click(object sender, EventArgs e)
         {
-            //dtpInputDate_ValueChanged(sender, e);
-            //LoadCalendar(dtpInputDate.Value);
-            dtpInputDate.Value = dtpInputDate2.Value;
+            Dictionary<string,double> priceDict = new Dictionary<string,double>();
             DataTable dt = new DataTable();
             dt.Columns.Add(new DataColumn("Mã lớp"));
             dt.Columns.Add(new DataColumn("Số buổi"));
             dt.Columns.Add(new DataColumn("tổng tiền"));
             DateTime date = dtpInputDate2.Value;
             DateTime useDate = new DateTime(date.Year, date.Month, 1);
+            foreach (DataRow row in calendarCurMonth.Rows)
+            {
+                if (!dt.AsEnumerable().Any(r => r.Field<string>("Mã lớp") == row.Field<string>("courseId")))
+                {
+                    dt.Rows.Add(row.Field<string>("courseId"), "0", 0);
+                    priceDict.Add(row.Field<string>("courseId"),row.Field<double>("Price"));
+                }
+            }
             for (int i = 1; i <= DateTime.DaysInMonth(date.Year, date.Month); i++)
             {
 
@@ -652,14 +663,62 @@ namespace QLGVFunction2
                     {
                         if (row["Course Id"].ToString() == row2["Mã lớp"].ToString())
                         {
-                            row2["Số buổi"] = int.Parse(row2["Số buổi"].ToString())+1;
+                            int n = int.Parse(row2["Số buổi"].ToString()) + 1;
+                            row2["Số buổi"] = n;
+                            row2["tổng tiền"] = (int)priceDict[row["Course Id"].ToString()] * n;
                         }
                     }
                 }
                 useDate = useDate.AddDays(1);
             }
+            dt.Rows.Add("Tổng cộng", dt.AsEnumerable().Sum(row => int.Parse(row["Số buổi"].ToString())).ToString(), dt.AsEnumerable().Sum(row => int.Parse(row["tổng tiền"].ToString())).ToString());
             dtgvStatistic.DataSource = dt;
-
+            lbTotal.Text = lbTotal.Text.Split('=')[0]+"= "+ dt.AsEnumerable().Sum(row => int.Parse(row["tổng tiền"].ToString())).ToString();
         }
+
+        private void tpXemlich_Click(object sender, EventArgs e)
+        {
+            //dtpInputDate.Enabled = true;
+            //dtpInputDate2.Enabled = false;
+        }
+
+        private void dtpInputDate2_ValueChanged_1(object sender, EventArgs e)
+        {
+            //dtpInputDate_ValueChanged(sender, e);
+            //LoadCalendar(dtpInputDate.Value);
+            dtpInputDate.Value = dtpInputDate2.Value;
+            //DataTable dt = new DataTable();
+            //dt.Columns.Add(new DataColumn("Mã lớp"));
+            //dt.Columns.Add(new DataColumn("Số buổi"));
+            //dt.Columns.Add(new DataColumn("tổng tiền"));
+            //DateTime date = dtpInputDate2.Value;
+            //DateTime useDate = new DateTime(date.Year, date.Month, 1);
+            //foreach (DataRow row in calendarCurMonth.Rows)
+            //{
+            //    if (!dt.AsEnumerable().Any(r => r.Field<string>("Mã lớp") == row.Field<string>("courseId")))
+            //    {
+            //        dt.Rows.Add(row.Field<string>("courseId"), "0", "0");
+            //    }
+            //}
+            //for (int i = 1; i <= DateTime.DaysInMonth(date.Year, date.Month); i++)
+            //{
+
+            //    DataTable info = GetInfoDay(useDate);
+            //    foreach (DataRow row in info.Rows)
+            //    {
+            //        foreach (DataRow row2 in dt.Rows)
+            //        {
+            //            if (row["Course Id"].ToString() == row2["Mã lớp"].ToString())
+            //            {
+            //                row2["Số buổi"] = int.Parse(row2["Số buổi"].ToString()) + 1;
+            //            }
+            //        }
+            //    }
+            //    useDate = useDate.AddDays(1);
+            //}
+            //dtgvStatistic.DataSource = dt;
+        }
+
+      
     }
 }
