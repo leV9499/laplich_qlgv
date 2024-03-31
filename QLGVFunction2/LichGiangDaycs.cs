@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Spreadsheet;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -58,5 +60,46 @@ namespace QLGVFunction2
             Absent ab = new Absent(courseId,date);
             ab.Show();
         }
+
+        private void btnExportExcel_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "Excel Workbook|*.xlsx";
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        using (XLWorkbook workbook = new XLWorkbook())
+                        {
+                            DataTable dt = new DataTable();
+                            foreach (DataGridViewColumn column in dtgvListTeaching.Columns)
+                            {
+                                dt.Columns.Add(column.HeaderText, column.ValueType);
+                            }
+                            foreach (DataGridViewRow row in dtgvListTeaching.Rows)
+                            {
+                                dt.Rows.Add();
+                                foreach (DataGridViewCell cell in row.Cells)
+                                {
+                                    if (cell.Value != null) 
+                                    {
+                                        dt.Rows[dt.Rows.Count - 1][cell.ColumnIndex] = cell.Value.ToString();
+                                    }
+                                }
+                            }
+                            workbook.Worksheets.Add(dt, "WorksheetName");
+                            workbook.SaveAs(sfd.FileName);
+                            MessageBox.Show("You have successfully exported your data to an excel file.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Fail: " + ex.Message);
+                    }
+                }
+            }
+        }
+
     }
 }

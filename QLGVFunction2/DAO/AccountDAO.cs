@@ -36,6 +36,17 @@ namespace QLGVFunction2.DAO
             DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { username, password });
             return result.Rows.Count > 0;
         }
+        public bool CheckMailUser(string mail)
+        {
+            string query = ($"Select * from Account where email = '{mail}'");
+            DataTable result = DataProvider.Instance.ExecuteQuery(query);
+            return result.Rows.Count > 0;
+        }
+        public void UpdatePassword(string email, string password)
+        {
+            string query = $"Update Account set Password = '{password}' where email = '{email}' ";
+            DataProvider.Instance.ExecuteNonQuery(query);
+        }
 
     }
 }
