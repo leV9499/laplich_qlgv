@@ -20,11 +20,12 @@ namespace QLGVFunction2
             LoadTextTime(pnTime);
         }
 
-        public Absent(string CourseId)
+        public Absent(string CourseId, DateTime date)
         {
             InitializeComponent();
             this.courseId=CourseId;
             txbCourseId.Text = CourseId;
+            dtpAbsent.Value = date;
             LoadTextTime(pnTime);
         }
         private void btnValid_Click(object sender, EventArgs e)
@@ -67,7 +68,7 @@ namespace QLGVFunction2
             int month = int.Parse(parts[0]);
             int day = int.Parse(parts[1]);
             int year = int.Parse(parts[2]);
-            string outputDate = $"{year}-{month:00}-{day:00}";
+            string outputDate = $"{year}-{day:00}-{month:00}";
 
             return outputDate;
         }

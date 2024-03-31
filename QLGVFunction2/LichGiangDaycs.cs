@@ -14,7 +14,7 @@ namespace QLGVFunction2
     public partial class LichGiangDaycs : Form
     {
         BindingSource bindingSource = new BindingSource();
-    
+        private DateTime date;
         public LichGiangDaycs()
         {
             InitializeComponent();
@@ -24,11 +24,12 @@ namespace QLGVFunction2
         {
         }
 
-        public LichGiangDaycs(DataTable dt)
+        public LichGiangDaycs(DataTable dt, DateTime date)
         {
             InitializeComponent();
             LoadTimeTeaching(dt);
             updatedatabinding();
+            this.date = date;
         }
 
         void LoadTimeTeaching(DataTable dt)
@@ -54,7 +55,7 @@ namespace QLGVFunction2
         {
 
             string courseId = txbCourseID.Text;
-            Absent ab = new Absent(courseId);
+            Absent ab = new Absent(courseId,date);
             ab.Show();
         }
     }

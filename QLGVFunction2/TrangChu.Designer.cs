@@ -83,6 +83,9 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbMoney = new System.Windows.Forms.TextBox();
+            this.lbMoney = new System.Windows.Forms.Label();
             this.lbAddress = new System.Windows.Forms.Label();
             this.pnEndTime = new System.Windows.Forms.Panel();
             this.textTest = new System.Windows.Forms.TextBox();
@@ -116,6 +119,10 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.tbpRemoveEditJob = new System.Windows.Forms.TabPage();
+            this.label22 = new System.Windows.Forms.Label();
+            this.tbMoneyEditDelete = new System.Windows.Forms.TextBox();
+            this.pnlTimeStart = new System.Windows.Forms.Panel();
+            this.tbTime = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.tbCourseId = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -128,17 +135,14 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.tbAddress = new System.Windows.Forms.TextBox();
-            this.tbTime = new System.Windows.Forms.TextBox();
             this.tbDay = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.dtgvJob = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.pnlTimeStart = new System.Windows.Forms.Panel();
-            this.lbMoney = new System.Windows.Forms.Label();
-            this.tbMoney = new System.Windows.Forms.TextBox();
-            this.tbMoneyEditDelete = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tabStatistic = new System.Windows.Forms.TabPage();
+            this.dtpInputDate2 = new System.Windows.Forms.DateTimePicker();
+            this.dtgvStatistic = new System.Windows.Forms.DataGridView();
+            this.label23 = new System.Windows.Forms.Label();
             this.tabTrangchu.SuspendLayout();
             this.tpXemlich.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -161,8 +165,10 @@
             this.pnEndTime.SuspendLayout();
             this.pnStartTime.SuspendLayout();
             this.tbpRemoveEditJob.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvJob)).BeginInit();
             this.pnlTimeStart.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvJob)).BeginInit();
+            this.tabStatistic.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvStatistic)).BeginInit();
             this.SuspendLayout();
             // 
             // tabTrangchu
@@ -171,6 +177,7 @@
             this.tabTrangchu.Controls.Add(this.tpThongtin);
             this.tabTrangchu.Controls.Add(this.tabPage1);
             this.tabTrangchu.Controls.Add(this.tbpRemoveEditJob);
+            this.tabTrangchu.Controls.Add(this.tabStatistic);
             this.tabTrangchu.Location = new System.Drawing.Point(12, 12);
             this.tabTrangchu.Name = "tabTrangchu";
             this.tabTrangchu.SelectedIndex = 0;
@@ -713,6 +720,33 @@
             this.panel6.Size = new System.Drawing.Size(1019, 485);
             this.panel6.TabIndex = 1;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(165, 227);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(131, 62);
+            this.textBox1.TabIndex = 106;
+            this.textBox1.Text = "Thời gian mỗi ca dạy 2:30";
+            // 
+            // tbMoney
+            // 
+            this.tbMoney.Location = new System.Drawing.Point(860, 21);
+            this.tbMoney.Name = "tbMoney";
+            this.tbMoney.Size = new System.Drawing.Size(100, 22);
+            this.tbMoney.TabIndex = 105;
+            this.tbMoney.TextChanged += new System.EventHandler(this.tbMoney_TextChanged);
+            // 
+            // lbMoney
+            // 
+            this.lbMoney.AutoSize = true;
+            this.lbMoney.Location = new System.Drawing.Point(758, 20);
+            this.lbMoney.Name = "lbMoney";
+            this.lbMoney.Size = new System.Drawing.Size(52, 16);
+            this.lbMoney.TabIndex = 104;
+            this.lbMoney.Text = "Giá tiền";
+            // 
             // lbAddress
             // 
             this.lbAddress.AutoSize = true;
@@ -1026,6 +1060,37 @@
             this.tbpRemoveEditJob.Text = "Xóa và sửa công việc";
             this.tbpRemoveEditJob.UseVisualStyleBackColor = true;
             // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(545, 414);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(52, 16);
+            this.label22.TabIndex = 107;
+            this.label22.Text = "Giá tiền";
+            // 
+            // tbMoneyEditDelete
+            // 
+            this.tbMoneyEditDelete.Location = new System.Drawing.Point(711, 408);
+            this.tbMoneyEditDelete.Name = "tbMoneyEditDelete";
+            this.tbMoneyEditDelete.Size = new System.Drawing.Size(247, 22);
+            this.tbMoneyEditDelete.TabIndex = 106;
+            // 
+            // pnlTimeStart
+            // 
+            this.pnlTimeStart.Controls.Add(this.tbTime);
+            this.pnlTimeStart.Location = new System.Drawing.Point(714, 192);
+            this.pnlTimeStart.Name = "pnlTimeStart";
+            this.pnlTimeStart.Size = new System.Drawing.Size(244, 56);
+            this.pnlTimeStart.TabIndex = 18;
+            // 
+            // tbTime
+            // 
+            this.tbTime.Location = new System.Drawing.Point(0, 13);
+            this.tbTime.Name = "tbTime";
+            this.tbTime.Size = new System.Drawing.Size(240, 22);
+            this.tbTime.TabIndex = 5;
+            // 
             // label21
             // 
             this.label21.AutoSize = true;
@@ -1133,13 +1198,6 @@
             this.tbAddress.Size = new System.Drawing.Size(245, 22);
             this.tbAddress.TabIndex = 6;
             // 
-            // tbTime
-            // 
-            this.tbTime.Location = new System.Drawing.Point(0, 13);
-            this.tbTime.Name = "tbTime";
-            this.tbTime.Size = new System.Drawing.Size(240, 22);
-            this.tbTime.TabIndex = 5;
-            // 
             // tbDay
             // 
             this.tbDay.Location = new System.Drawing.Point(711, 77);
@@ -1172,56 +1230,48 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // pnlTimeStart
+            // tabStatistic
             // 
-            this.pnlTimeStart.Controls.Add(this.tbTime);
-            this.pnlTimeStart.Location = new System.Drawing.Point(714, 192);
-            this.pnlTimeStart.Name = "pnlTimeStart";
-            this.pnlTimeStart.Size = new System.Drawing.Size(244, 56);
-            this.pnlTimeStart.TabIndex = 18;
+            this.tabStatistic.Controls.Add(this.label23);
+            this.tabStatistic.Controls.Add(this.dtgvStatistic);
+            this.tabStatistic.Controls.Add(this.dtpInputDate2);
+            this.tabStatistic.Location = new System.Drawing.Point(4, 25);
+            this.tabStatistic.Name = "tabStatistic";
+            this.tabStatistic.Padding = new System.Windows.Forms.Padding(3);
+            this.tabStatistic.Size = new System.Drawing.Size(1035, 501);
+            this.tabStatistic.TabIndex = 4;
+            this.tabStatistic.Text = "Thống kê";
+            this.tabStatistic.UseVisualStyleBackColor = true;
             // 
-            // lbMoney
+            // dtpInputDate2
             // 
-            this.lbMoney.AutoSize = true;
-            this.lbMoney.Location = new System.Drawing.Point(758, 20);
-            this.lbMoney.Name = "lbMoney";
-            this.lbMoney.Size = new System.Drawing.Size(52, 16);
-            this.lbMoney.TabIndex = 104;
-            this.lbMoney.Text = "Giá tiền";
+            this.dtpInputDate2.Location = new System.Drawing.Point(236, 27);
+            this.dtpInputDate2.Name = "dtpInputDate2";
+            this.dtpInputDate2.Size = new System.Drawing.Size(200, 22);
+            this.dtpInputDate2.TabIndex = 0;
+            this.dtpInputDate2.ValueChanged += new System.EventHandler(this.dtpInputDate2_ValueChanged);
             // 
-            // tbMoney
+            // dtgvStatistic
             // 
-            this.tbMoney.Location = new System.Drawing.Point(860, 21);
-            this.tbMoney.Name = "tbMoney";
-            this.tbMoney.Size = new System.Drawing.Size(100, 22);
-            this.tbMoney.TabIndex = 105;
-            this.tbMoney.TextChanged += new System.EventHandler(this.tbMoney_TextChanged);
+            this.dtgvStatistic.AllowUserToAddRows = false;
+            this.dtgvStatistic.AllowUserToDeleteRows = false;
+            this.dtgvStatistic.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvStatistic.Location = new System.Drawing.Point(87, 81);
+            this.dtgvStatistic.Name = "dtgvStatistic";
+            this.dtgvStatistic.ReadOnly = true;
+            this.dtgvStatistic.RowHeadersWidth = 51;
+            this.dtgvStatistic.RowTemplate.Height = 24;
+            this.dtgvStatistic.Size = new System.Drawing.Size(607, 302);
+            this.dtgvStatistic.TabIndex = 1;
             // 
-            // tbMoneyEditDelete
+            // label23
             // 
-            this.tbMoneyEditDelete.Location = new System.Drawing.Point(711, 408);
-            this.tbMoneyEditDelete.Name = "tbMoneyEditDelete";
-            this.tbMoneyEditDelete.Size = new System.Drawing.Size(247, 22);
-            this.tbMoneyEditDelete.TabIndex = 106;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(545, 414);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(52, 16);
-            this.label22.TabIndex = 107;
-            this.label22.Text = "Giá tiền";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(165, 227);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(131, 62);
-            this.textBox1.TabIndex = 106;
-            this.textBox1.Text = "Thời gian mỗi ca dạy 2:30";
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(742, 367);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(97, 16);
+            this.label23.TabIndex = 2;
+            this.label23.Text = "Tổng tiền = 100";
             // 
             // TrangChu
             // 
@@ -1265,9 +1315,12 @@
             this.pnStartTime.PerformLayout();
             this.tbpRemoveEditJob.ResumeLayout(false);
             this.tbpRemoveEditJob.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvJob)).EndInit();
             this.pnlTimeStart.ResumeLayout(false);
             this.pnlTimeStart.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvJob)).EndInit();
+            this.tabStatistic.ResumeLayout(false);
+            this.tabStatistic.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvStatistic)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1385,5 +1438,9 @@
         private System.Windows.Forms.TextBox tbMoneyEditDelete;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TabPage tabStatistic;
+        private System.Windows.Forms.DataGridView dtgvStatistic;
+        private System.Windows.Forms.DateTimePicker dtpInputDate2;
+        private System.Windows.Forms.Label label23;
     }
 }

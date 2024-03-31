@@ -61,6 +61,7 @@
             // 
             // dtpAbsent
             // 
+            this.dtpAbsent.Enabled = false;
             this.dtpAbsent.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpAbsent.Location = new System.Drawing.Point(209, 118);
             this.dtpAbsent.Name = "dtpAbsent";
@@ -69,6 +70,7 @@
             // 
             // txbAbsentTime
             // 
+            this.txbAbsentTime.Enabled = false;
             this.txbAbsentTime.Location = new System.Drawing.Point(30, 3);
             this.txbAbsentTime.Name = "txbAbsentTime";
             this.txbAbsentTime.Size = new System.Drawing.Size(202, 22);

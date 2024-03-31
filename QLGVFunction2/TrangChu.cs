@@ -29,7 +29,6 @@ namespace QLGVFunction2
             LoadTextTime(pnlTimeStart);
             LoadTextTime(pnEndTime);
             ShowAllJob();
-
         }
         public TrangChu()
         {
@@ -170,8 +169,10 @@ namespace QLGVFunction2
             Button btn = sender as Button;
             DateTime date = (DateTime)btn.Tag;
             DataTable data = GetInfoDay(date);
-            LichGiangDaycs lichGiangDaycs = new LichGiangDaycs(data);
-            lichGiangDaycs.Show();
+            LichGiangDaycs lichGiangDaycs = new LichGiangDaycs(data, date);
+            lichGiangDaycs.ShowDialog();
+            loadedData.Clear();
+            LoadCalendar(DateTime.Now);
         }
         private DataTable GetInfoDay(DateTime date)
         {
@@ -626,6 +627,38 @@ namespace QLGVFunction2
 
         private void tbMoney_TextChanged(object sender, EventArgs e)
         {
+
+
+        }
+
+        private void dtpInputDate2_ValueChanged(object sender, EventArgs e)
+        {
+            //dtpInputDate_ValueChanged(sender, e);
+            //LoadCalendar(dtpInputDate.Value);
+            dtpInputDate.Value = dtpInputDate2.Value;
+            DataTable dt = new DataTable();
+            dt.Columns.Add(new DataColumn("Mã lớp"));
+            dt.Columns.Add(new DataColumn("Số buổi"));
+            dt.Columns.Add(new DataColumn("tổng tiền"));
+            DateTime date = dtpInputDate2.Value;
+            DateTime useDate = new DateTime(date.Year, date.Month, 1);
+            for (int i = 1; i <= DateTime.DaysInMonth(date.Year, date.Month); i++)
+            {
+
+                DataTable info = GetInfoDay(useDate);
+                foreach (DataRow row in info.Rows)
+                {
+                    foreach (DataRow row2 in dt.Rows)
+                    {
+                        if (row["Course Id"].ToString() == row2["Mã lớp"].ToString())
+                        {
+                            row2["Số buổi"] = int.Parse(row2["Số buổi"].ToString())+1;
+                        }
+                    }
+                }
+                useDate = useDate.AddDays(1);
+            }
+            dtgvStatistic.DataSource = dt;
 
         }
     }
