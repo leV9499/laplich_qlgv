@@ -175,7 +175,7 @@ namespace QLGVFunction2
             LichGiangDaycs lichGiangDaycs = new LichGiangDaycs(data, date);
             lichGiangDaycs.ShowDialog();
             loadedData.Clear();
-            LoadCalendar(DateTime.Now);
+            LoadCalendar(date);
         }
         private DataTable GetInfoDay(DateTime date)
         {
@@ -338,6 +338,7 @@ namespace QLGVFunction2
         {
             if(isLoading) return;
             LoadCalendar(dtpInputDate.Value);
+            LoadSalary();
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -639,7 +640,26 @@ namespace QLGVFunction2
 
         private void tabStatistic_Click(object sender, EventArgs e)
         {
-            Dictionary<string,double> priceDict = new Dictionary<string,double>();
+            
+        }
+
+        private void tpXemlich_Click(object sender, EventArgs e)
+        {
+            //dtpInputDate.Enabled = true;
+            //dtpInputDate2.Enabled = false;
+        }
+
+        private void dtpInputDate2_ValueChanged_1(object sender, EventArgs e)
+        {
+            //dtpInputDate_ValueChanged(sender, e);
+            //LoadCalendar(dtpInputDate.Value);
+            dtpInputDate.Value = dtpInputDate2.Value;
+            //LoadSalary();
+            
+        }
+        private void LoadSalary()
+        {
+            Dictionary<string, double> priceDict = new Dictionary<string, double>();
             DataTable dt = new DataTable();
             dt.Columns.Add(new DataColumn("Mã lớp"));
             dt.Columns.Add(new DataColumn("Số buổi"));
@@ -651,7 +671,7 @@ namespace QLGVFunction2
                 if (!dt.AsEnumerable().Any(r => r.Field<string>("Mã lớp") == row.Field<string>("courseId")))
                 {
                     dt.Rows.Add(row.Field<string>("courseId"), "0", 0);
-                    priceDict.Add(row.Field<string>("courseId"),row.Field<double>("Price"));
+                    priceDict.Add(row.Field<string>("courseId"), row.Field<double>("Price"));
                 }
             }
             for (int i = 1; i <= DateTime.DaysInMonth(date.Year, date.Month); i++)
@@ -672,54 +692,11 @@ namespace QLGVFunction2
                 }
                 useDate = useDate.AddDays(1);
             }
-            dt.Rows.Add("Tổng cộng", dt.AsEnumerable().Sum(row => int.Parse(row["Số buổi"].ToString())).ToString(), dt.AsEnumerable().Sum(row => int.Parse(row["tổng tiền"].ToString())).ToString());
+            int total = dt.AsEnumerable().Sum(row => int.Parse(row["tổng tiền"].ToString()));
+            dt.Rows.Add("Tổng cộng", dt.AsEnumerable().Sum(row => int.Parse(row["Số buổi"].ToString())).ToString(), total.ToString());
             dtgvStatistic.DataSource = dt;
-            lbTotal.Text = lbTotal.Text.Split('=')[0]+"= "+ dt.AsEnumerable().Sum(row => int.Parse(row["tổng tiền"].ToString())).ToString();
+            lbTotal.Text = lbTotal.Text.Split('=')[0] + "= " + total.ToString();
         }
-
-        private void tpXemlich_Click(object sender, EventArgs e)
-        {
-            //dtpInputDate.Enabled = true;
-            //dtpInputDate2.Enabled = false;
-        }
-
-        private void dtpInputDate2_ValueChanged_1(object sender, EventArgs e)
-        {
-            //dtpInputDate_ValueChanged(sender, e);
-            //LoadCalendar(dtpInputDate.Value);
-            dtpInputDate.Value = dtpInputDate2.Value;
-            //DataTable dt = new DataTable();
-            //dt.Columns.Add(new DataColumn("Mã lớp"));
-            //dt.Columns.Add(new DataColumn("Số buổi"));
-            //dt.Columns.Add(new DataColumn("tổng tiền"));
-            //DateTime date = dtpInputDate2.Value;
-            //DateTime useDate = new DateTime(date.Year, date.Month, 1);
-            //foreach (DataRow row in calendarCurMonth.Rows)
-            //{
-            //    if (!dt.AsEnumerable().Any(r => r.Field<string>("Mã lớp") == row.Field<string>("courseId")))
-            //    {
-            //        dt.Rows.Add(row.Field<string>("courseId"), "0", "0");
-            //    }
-            //}
-            //for (int i = 1; i <= DateTime.DaysInMonth(date.Year, date.Month); i++)
-            //{
-
-            //    DataTable info = GetInfoDay(useDate);
-            //    foreach (DataRow row in info.Rows)
-            //    {
-            //        foreach (DataRow row2 in dt.Rows)
-            //        {
-            //            if (row["Course Id"].ToString() == row2["Mã lớp"].ToString())
-            //            {
-            //                row2["Số buổi"] = int.Parse(row2["Số buổi"].ToString()) + 1;
-            //            }
-            //        }
-            //    }
-            //    useDate = useDate.AddDays(1);
-            //}
-            //dtgvStatistic.DataSource = dt;
-        }
-
         private void btnExportExcel_Click(object sender, EventArgs e)
         {
             using (SaveFileDialog sfd = new SaveFileDialog())

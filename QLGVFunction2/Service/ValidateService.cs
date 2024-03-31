@@ -118,7 +118,16 @@ namespace QLGVFunction2.Service
         }
         public static string ConvertDate(string inputDate)
         {
-            DateTime dt = DateTime.ParseExact(inputDate, "M/d/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+            DateTime dt;
+            try
+            {
+                 dt = DateTime.ParseExact(inputDate, "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+            }
+            catch
+            {
+                dt = DateTime.ParseExact(inputDate, "M/d/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+            }
+
             return dt.ToString("yyyy-MM-dd");
         }
     }

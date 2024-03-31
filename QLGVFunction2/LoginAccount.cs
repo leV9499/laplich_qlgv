@@ -43,14 +43,16 @@ namespace QLGVFunction2
                 try
                 {
                     SavePassword.SaveCredential(userNameEmail, password, checkboxRemember.Checked);
-                    Random ran = new Random();
-                    string OTP = ran.Next(1000, 9999).ToString();
-                    MailService.sendMailOTP(userNameEmail, OTP);
+                    //Random ran = new Random();
+                    //string OTP = ran.Next(1000, 9999).ToString();
+                    //MailService.sendMailOTP(userNameEmail, OTP);
 
-                    VerifyOTP v = new VerifyOTP(OTP);
-                    VerifyOTP demo= new VerifyOTP(OTP, username[0]);
+                    //VerifyOTP v = new VerifyOTP(OTP);
+                    //VerifyOTP demo= new VerifyOTP(OTP, username[0]);
                     TrangChu t = new TrangChu(username[0]);
                     t.Show();
+                    t.FormClosing += Form_FormClosing;
+                    this.Hide();
                 }
                 catch (Exception ex)
                 {
@@ -63,7 +65,10 @@ namespace QLGVFunction2
 
             }
         }
-        
+        private void Form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Close();
+        }
         public bool login(string userName, string password)
         {
             return AccountDAO.Instance.Login(userName, password);

@@ -188,9 +188,9 @@
             this.tenDangNhap.Location = new System.Drawing.Point(4, 18);
             this.tenDangNhap.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.tenDangNhap.Name = "tenDangNhap";
-            this.tenDangNhap.Size = new System.Drawing.Size(119, 20);
+            this.tenDangNhap.Size = new System.Drawing.Size(133, 20);
             this.tenDangNhap.TabIndex = 0;
-            this.tenDangNhap.Text = "Tên đăng nhập";
+            this.tenDangNhap.Text = "Email đăng nhập";
             // 
             // cbUsername
             // 
